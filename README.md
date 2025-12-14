@@ -1,4 +1,4 @@
-# @cashful-co/typescript@0.0.1
+# @cashful-co/typescript@0.1.0
 
 A TypeScript SDK client for the localhost API.
 
@@ -56,18 +56,36 @@ All URIs are relative to *http://localhost:3000*
 | ----- | ------ | ------------ | -------------
 *AuthenticationApi* | [**acceptInvitation**](docs/AuthenticationApi.md#acceptinvitation) | **POST** /api/canary/authentication/organization/accept-invitation | Accept Invitation
 *AuthenticationApi* | [**cancelInvitation**](docs/AuthenticationApi.md#cancelinvitation) | **POST** /api/canary/authentication/organization/cancel-invitation | Cancel Invitation
+*AuthenticationApi* | [**changeEmail**](docs/AuthenticationApi.md#changeemail) | **POST** /api/canary/authentication/change-email | Change Email
+*AuthenticationApi* | [**changePassword**](docs/AuthenticationApi.md#changepassword) | **POST** /api/canary/authentication/change-password | Change Password
+*AuthenticationApi* | [**checkSlug**](docs/AuthenticationApi.md#checkslug) | **POST** /api/canary/authentication/organization/check-slug | Check Slug
 *AuthenticationApi* | [**createApiKey**](docs/AuthenticationApi.md#createapikey) | **POST** /api/canary/authentication/api-key/create | Create API Key
 *AuthenticationApi* | [**createOrganization**](docs/AuthenticationApi.md#createorganization) | **POST** /api/canary/authentication/organization/create | Create Organization
 *AuthenticationApi* | [**deleteApiKey**](docs/AuthenticationApi.md#deleteapikey) | **POST** /api/canary/authentication/api-key/delete | Delete API Key
 *AuthenticationApi* | [**deleteOrganization**](docs/AuthenticationApi.md#deleteorganization) | **POST** /api/canary/authentication/organization/delete | Delete Organization
+*AuthenticationApi* | [**deleteUser**](docs/AuthenticationApi.md#deleteuser) | **POST** /api/canary/authentication/delete-user | Delete User
 *AuthenticationApi* | [**forgetPassword**](docs/AuthenticationApi.md#forgetpassword) | **POST** /api/canary/authentication/forget-password | Forget Password
+*AuthenticationApi* | [**getActiveMember**](docs/AuthenticationApi.md#getactivemember) | **GET** /api/canary/authentication/organization/get-active-member | Get Active Member
+*AuthenticationApi* | [**getActiveMemberRole**](docs/AuthenticationApi.md#getactivememberrole) | **GET** /api/canary/authentication/organization/get-active-member-role | Get Active Member Role
+*AuthenticationApi* | [**getInvitation**](docs/AuthenticationApi.md#getinvitation) | **GET** /api/canary/authentication/organization/get-invitation | Get Invitation
+*AuthenticationApi* | [**getOrganization**](docs/AuthenticationApi.md#getorganization) | **GET** /api/canary/authentication/organization/get-full-organization | Get Full Organization
 *AuthenticationApi* | [**getSession**](docs/AuthenticationApi.md#getsession) | **GET** /api/canary/authentication/get-session | Get Session
+*AuthenticationApi* | [**hasPermission**](docs/AuthenticationApi.md#haspermission) | **POST** /api/canary/authentication/organization/has-permission | Has Permission
 *AuthenticationApi* | [**inviteMember**](docs/AuthenticationApi.md#invitemember) | **POST** /api/canary/authentication/organization/invite-member | Invite Member
+*AuthenticationApi* | [**leaveOrganization**](docs/AuthenticationApi.md#leaveorganization) | **POST** /api/canary/authentication/organization/leave | Leave Organization
 *AuthenticationApi* | [**listApiKeys**](docs/AuthenticationApi.md#listapikeys) | **GET** /api/canary/authentication/api-key/list | List API Keys
+*AuthenticationApi* | [**listMembers**](docs/AuthenticationApi.md#listmembers) | **GET** /api/canary/authentication/organization/list-members | List Members
+*AuthenticationApi* | [**listOrganizationInvitations**](docs/AuthenticationApi.md#listorganizationinvitations) | **GET** /api/canary/authentication/organization/list-invitations | List Invitations
 *AuthenticationApi* | [**listOrganizations**](docs/AuthenticationApi.md#listorganizations) | **GET** /api/canary/authentication/organization/list | List Organizations
+*AuthenticationApi* | [**listUserInvitations**](docs/AuthenticationApi.md#listuserinvitations) | **GET** /api/canary/authentication/organization/list-user-invitations | List User Invitations
+*AuthenticationApi* | [**listUserSessions**](docs/AuthenticationApi.md#listusersessions) | **GET** /api/canary/authentication/list-sessions | List User Sessions
 *AuthenticationApi* | [**rejectInvitation**](docs/AuthenticationApi.md#rejectinvitation) | **POST** /api/canary/authentication/organization/reject-invitation | Reject Invitation
 *AuthenticationApi* | [**removeMember**](docs/AuthenticationApi.md#removemember) | **POST** /api/canary/authentication/organization/remove-member | Remove Member
+*AuthenticationApi* | [**requestPasswordReset**](docs/AuthenticationApi.md#requestpasswordreset) | **POST** /api/canary/authentication/request-password-reset | Request Password Reset
 *AuthenticationApi* | [**resetPassword**](docs/AuthenticationApi.md#resetpassword) | **POST** /api/canary/authentication/reset-password | Reset Password
+*AuthenticationApi* | [**resetPasswordCallback**](docs/AuthenticationApi.md#resetpasswordcallback) | **GET** /api/canary/authentication/reset-password/{token} | Reset Password Callback
+*AuthenticationApi* | [**revokeSession**](docs/AuthenticationApi.md#revokesession) | **POST** /api/canary/authentication/revoke-session | Revoke Session
+*AuthenticationApi* | [**sendVerificationEmail**](docs/AuthenticationApi.md#sendverificationemail) | **POST** /api/canary/authentication/send-verification-email | Send Verification Email
 *AuthenticationApi* | [**setActiveOrganization**](docs/AuthenticationApi.md#setactiveorganization) | **POST** /api/canary/authentication/organization/set-active | Set Active Organization
 *AuthenticationApi* | [**signInEmail**](docs/AuthenticationApi.md#signinemail) | **POST** /api/canary/authentication/sign-in/email | Sign in with email
 *AuthenticationApi* | [**signOut**](docs/AuthenticationApi.md#signout) | **POST** /api/canary/authentication/sign-out | Sign out
@@ -75,7 +93,9 @@ All URIs are relative to *http://localhost:3000*
 *AuthenticationApi* | [**updateApiKey**](docs/AuthenticationApi.md#updateapikey) | **POST** /api/canary/authentication/api-key/update | Update API Key
 *AuthenticationApi* | [**updateMemberRole**](docs/AuthenticationApi.md#updatememberrole) | **POST** /api/canary/authentication/organization/update-member-role | Update Member Role
 *AuthenticationApi* | [**updateOrganization**](docs/AuthenticationApi.md#updateorganization) | **POST** /api/canary/authentication/organization/update | Update Organization
+*AuthenticationApi* | [**updateUser**](docs/AuthenticationApi.md#updateuser) | **POST** /api/canary/authentication/update-user | Update User
 *AuthenticationApi* | [**verifyApiKey**](docs/AuthenticationApi.md#verifyapikey) | **POST** /api/canary/authentication/api-key/verify | Verify API Key
+*AuthenticationApi* | [**verifyEmail**](docs/AuthenticationApi.md#verifyemail) | **GET** /api/canary/authentication/verify-email | Verify Email
 *BalanceApi* | [**getBalanceHistory**](docs/BalanceApi.md#getbalancehistory) | **GET** /api/canary/balance/history | List Merchant Balance History
 *BalanceApi* | [**getMerchantBalance**](docs/BalanceApi.md#getmerchantbalance) | **GET** /api/canary/balance | Get Merchant Balance
 *CheckoutsApi* | [**createCheckoutSession**](docs/CheckoutsApi.md#createcheckoutsession) | **POST** /api/canary/checkout/sessions | Create Hosted Checkout
@@ -110,17 +130,29 @@ All URIs are relative to *http://localhost:3000*
 ### Models
 
 - [AcceptInvitationDto](docs/AcceptInvitationDto.md)
+- [AcceptInvitationResponseDto](docs/AcceptInvitationResponseDto.md)
+- [ApiKey](docs/ApiKey.md)
 - [BalanceHistoryResponseDto](docs/BalanceHistoryResponseDto.md)
 - [BalanceTransactionDto](docs/BalanceTransactionDto.md)
 - [BanUserDto](docs/BanUserDto.md)
+- [BanUserResponseDto](docs/BanUserResponseDto.md)
 - [BaseDto](docs/BaseDto.md)
 - [CancelInvitationDto](docs/CancelInvitationDto.md)
+- [CancelInvitationResponseDto](docs/CancelInvitationResponseDto.md)
+- [ChangeEmailDto](docs/ChangeEmailDto.md)
+- [ChangeEmailResponseDto](docs/ChangeEmailResponseDto.md)
+- [ChangePasswordDto](docs/ChangePasswordDto.md)
+- [ChangePasswordResponseDto](docs/ChangePasswordResponseDto.md)
+- [CheckSlugDto](docs/CheckSlugDto.md)
+- [CheckSlugResponseDto](docs/CheckSlugResponseDto.md)
 - [CheckoutSessionResponseDto](docs/CheckoutSessionResponseDto.md)
 - [CreateApiKeyDto](docs/CreateApiKeyDto.md)
+- [CreateApiKeyResponseDto](docs/CreateApiKeyResponseDto.md)
 - [CreateBalanceDto](docs/CreateBalanceDto.md)
 - [CreateCheckoutSessionDto](docs/CreateCheckoutSessionDto.md)
 - [CreateCustomerDto](docs/CreateCustomerDto.md)
 - [CreateOrganizationDto](docs/CreateOrganizationDto.md)
+- [CreateOrganizationResponseDto](docs/CreateOrganizationResponseDto.md)
 - [CreatePaymentIntentDto](docs/CreatePaymentIntentDto.md)
 - [CreatePaymentLinkDto](docs/CreatePaymentLinkDto.md)
 - [CreatePaymentMethodDto](docs/CreatePaymentMethodDto.md)
@@ -132,22 +164,48 @@ All URIs are relative to *http://localhost:3000*
 - [CustomerResponseDto](docs/CustomerResponseDto.md)
 - [CustomerTransactionDto](docs/CustomerTransactionDto.md)
 - [DeleteApiKeyDto](docs/DeleteApiKeyDto.md)
+- [DeleteApiKeyResponseDto](docs/DeleteApiKeyResponseDto.md)
 - [DeleteOrganizationDto](docs/DeleteOrganizationDto.md)
+- [DeleteOrganizationResponseDto](docs/DeleteOrganizationResponseDto.md)
+- [DeleteUserDto](docs/DeleteUserDto.md)
+- [DeleteUserResponseDto](docs/DeleteUserResponseDto.md)
 - [ErrorResponseDto](docs/ErrorResponseDto.md)
 - [EventResponseDto](docs/EventResponseDto.md)
 - [ForgotPasswordDto](docs/ForgotPasswordDto.md)
+- [ForgotPasswordResponseDto](docs/ForgotPasswordResponseDto.md)
+- [GetActiveMemberResponseDto](docs/GetActiveMemberResponseDto.md)
+- [GetActiveMemberRoleResponseDto](docs/GetActiveMemberRoleResponseDto.md)
+- [GetFullOrganizationResponseDto](docs/GetFullOrganizationResponseDto.md)
+- [GetInvitationResponseDto](docs/GetInvitationResponseDto.md)
 - [GetSessionResponseDto](docs/GetSessionResponseDto.md)
+- [HasPermissionDto](docs/HasPermissionDto.md)
+- [HasPermissionResponseDto](docs/HasPermissionResponseDto.md)
 - [ImpersonateUserDto](docs/ImpersonateUserDto.md)
+- [ImpersonateUserResponseDto](docs/ImpersonateUserResponseDto.md)
+- [InvitationDto](docs/InvitationDto.md)
 - [InviteMemberDto](docs/InviteMemberDto.md)
+- [InviteMemberResponseDto](docs/InviteMemberResponseDto.md)
+- [LeaveOrganizationDto](docs/LeaveOrganizationDto.md)
+- [LeaveOrganizationResponseDto](docs/LeaveOrganizationResponseDto.md)
 - [LineItemDto](docs/LineItemDto.md)
+- [ListApiKeysResponseDto](docs/ListApiKeysResponseDto.md)
 - [ListCustomerTransactionsResponseDto](docs/ListCustomerTransactionsResponseDto.md)
 - [ListCustomersResponseDto](docs/ListCustomersResponseDto.md)
 - [ListEventsResponseDto](docs/ListEventsResponseDto.md)
+- [ListInvitationsResponseDto](docs/ListInvitationsResponseDto.md)
+- [ListMembersResponseDto](docs/ListMembersResponseDto.md)
+- [ListOrganizationsResponseDto](docs/ListOrganizationsResponseDto.md)
 - [ListPaymentLinksResponseDto](docs/ListPaymentLinksResponseDto.md)
 - [ListPayoutsResponseDto](docs/ListPayoutsResponseDto.md)
 - [ListProductsResponseDto](docs/ListProductsResponseDto.md)
+- [ListSessionsResponseDto](docs/ListSessionsResponseDto.md)
+- [ListUserInvitationsResponseDto](docs/ListUserInvitationsResponseDto.md)
+- [ListUsersResponseDto](docs/ListUsersResponseDto.md)
 - [ListWebhookEndpointsResponseDto](docs/ListWebhookEndpointsResponseDto.md)
+- [MemberDto](docs/MemberDto.md)
 - [MerchantBalanceResponseDto](docs/MerchantBalanceResponseDto.md)
+- [Organization](docs/Organization.md)
+- [OrganizationDto](docs/OrganizationDto.md)
 - [PaginationResponseDto](docs/PaginationResponseDto.md)
 - [PaymentIntentResponseDto](docs/PaymentIntentResponseDto.md)
 - [PaymentLinkResponseDto](docs/PaymentLinkResponseDto.md)
@@ -156,25 +214,49 @@ All URIs are relative to *http://localhost:3000*
 - [ProductResponseDto](docs/ProductResponseDto.md)
 - [PurchaseResponseDto](docs/PurchaseResponseDto.md)
 - [RejectInvitationDto](docs/RejectInvitationDto.md)
+- [RejectInvitationResponseDto](docs/RejectInvitationResponseDto.md)
 - [RemoveMemberDto](docs/RemoveMemberDto.md)
+- [RemoveMemberResponseDto](docs/RemoveMemberResponseDto.md)
+- [RequestPasswordResetDto](docs/RequestPasswordResetDto.md)
+- [RequestPasswordResetResponseDto](docs/RequestPasswordResetResponseDto.md)
+- [ResetPasswordCallbackResponseDto](docs/ResetPasswordCallbackResponseDto.md)
 - [ResetPasswordDto](docs/ResetPasswordDto.md)
+- [ResetPasswordResponseDto](docs/ResetPasswordResponseDto.md)
+- [RevokeSessionDto](docs/RevokeSessionDto.md)
+- [RevokeSessionResponseDto](docs/RevokeSessionResponseDto.md)
+- [SendVerificationEmailDto](docs/SendVerificationEmailDto.md)
+- [SendVerificationEmailResponseDto](docs/SendVerificationEmailResponseDto.md)
 - [SessionDto](docs/SessionDto.md)
 - [SessionUserDto](docs/SessionUserDto.md)
 - [SetActiveOrganizationDto](docs/SetActiveOrganizationDto.md)
+- [SetActiveOrganizationResponseDto](docs/SetActiveOrganizationResponseDto.md)
 - [SetRoleDto](docs/SetRoleDto.md)
+- [SetRoleResponseDto](docs/SetRoleResponseDto.md)
 - [SignInDto](docs/SignInDto.md)
+- [SignInResponseDto](docs/SignInResponseDto.md)
+- [SignOutResponseDto](docs/SignOutResponseDto.md)
 - [SignUpDto](docs/SignUpDto.md)
+- [SignUpResponseDto](docs/SignUpResponseDto.md)
+- [StopImpersonatingResponseDto](docs/StopImpersonatingResponseDto.md)
 - [TransferResponseDto](docs/TransferResponseDto.md)
 - [UnbanUserDto](docs/UnbanUserDto.md)
+- [UnbanUserResponseDto](docs/UnbanUserResponseDto.md)
 - [UpdateApiKeyDto](docs/UpdateApiKeyDto.md)
+- [UpdateApiKeyResponseDto](docs/UpdateApiKeyResponseDto.md)
 - [UpdateCustomerDto](docs/UpdateCustomerDto.md)
 - [UpdateMemberRoleDto](docs/UpdateMemberRoleDto.md)
+- [UpdateMemberRoleResponseDto](docs/UpdateMemberRoleResponseDto.md)
 - [UpdateOrganizationDto](docs/UpdateOrganizationDto.md)
+- [UpdateOrganizationResponseDto](docs/UpdateOrganizationResponseDto.md)
 - [UpdatePaymentLinkDto](docs/UpdatePaymentLinkDto.md)
 - [UpdatePayoutDto](docs/UpdatePayoutDto.md)
 - [UpdateProductDto](docs/UpdateProductDto.md)
+- [UpdateUserDto](docs/UpdateUserDto.md)
+- [UpdateUserResponseDto](docs/UpdateUserResponseDto.md)
 - [UpdateWebhookEndpointDto](docs/UpdateWebhookEndpointDto.md)
 - [VerifyApiKeyDto](docs/VerifyApiKeyDto.md)
+- [VerifyApiKeyResponseDto](docs/VerifyApiKeyResponseDto.md)
+- [VerifyEmailResponseDto](docs/VerifyEmailResponseDto.md)
 - [WebhookEndpointResponseDto](docs/WebhookEndpointResponseDto.md)
 
 ### Authorization
@@ -194,7 +276,7 @@ and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.0.0`
-- Package version: `0.0.1`
+- Package version: `0.1.0`
 - Generator version: `7.17.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

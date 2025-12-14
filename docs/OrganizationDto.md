@@ -1,24 +1,32 @@
 
-# ResetPasswordDto
+# OrganizationDto
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`newPassword` | string
-`token` | string
+`id` | string
+`name` | string
+`slug` | string
+`logo` | string
+`createdAt` | string
+`metadata` | object
 
 ## Example
 
 ```typescript
-import type { ResetPasswordDto } from '@cashful-co/typescript'
+import type { OrganizationDto } from '@cashful-co/typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "newPassword": NewStrongPassword123!,
-  "token": token_12345,
-} satisfies ResetPasswordDto
+  "id": org_12345,
+  "name": Acme Corp,
+  "slug": acme-corp,
+  "logo": https://example.com/logo.png,
+  "createdAt": 2024-01-01T00:00:00Z,
+  "metadata": {"plan":"pro"},
+} satisfies OrganizationDto
 
 console.log(example)
 
@@ -27,7 +35,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ResetPasswordDto
+const exampleParsed = JSON.parse(exampleJSON) as OrganizationDto
 console.log(exampleParsed)
 ```
 

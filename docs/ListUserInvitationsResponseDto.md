@@ -1,24 +1,22 @@
 
-# ResetPasswordDto
+# ListUserInvitationsResponseDto
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`newPassword` | string
-`token` | string
+`invitations` | [Array&lt;InvitationDto&gt;](InvitationDto.md)
 
 ## Example
 
 ```typescript
-import type { ResetPasswordDto } from '@cashful-co/typescript'
+import type { ListUserInvitationsResponseDto } from '@cashful-co/typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "newPassword": NewStrongPassword123!,
-  "token": token_12345,
-} satisfies ResetPasswordDto
+  "invitations": null,
+} satisfies ListUserInvitationsResponseDto
 
 console.log(example)
 
@@ -27,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ResetPasswordDto
+const exampleParsed = JSON.parse(exampleJSON) as ListUserInvitationsResponseDto
 console.log(exampleParsed)
 ```
 

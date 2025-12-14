@@ -20,25 +20,24 @@ import { mapValues } from '../runtime';
  */
 export interface ResetPasswordDto {
     /**
-     * The new password
+     * The new password to set
      * @type {string}
      * @memberof ResetPasswordDto
      */
-    password: string;
+    newPassword: string;
     /**
-     * The token received in the email
+     * The token to reset password
      * @type {string}
      * @memberof ResetPasswordDto
      */
-    token: string;
+    token?: string;
 }
 
 /**
  * Check if a given object implements the ResetPasswordDto interface.
  */
 export function instanceOfResetPasswordDto(value: object): value is ResetPasswordDto {
-    if (!('password' in value) || value['password'] === undefined) return false;
-    if (!('token' in value) || value['token'] === undefined) return false;
+    if (!('newPassword' in value) || value['newPassword'] === undefined) return false;
     return true;
 }
 
@@ -52,8 +51,8 @@ export function ResetPasswordDtoFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'password': json['password'],
-        'token': json['token'],
+        'newPassword': json['newPassword'],
+        'token': json['token'] == null ? undefined : json['token'],
     };
 }
 
@@ -68,7 +67,7 @@ export function ResetPasswordDtoToJSONTyped(value?: ResetPasswordDto | null, ign
 
     return {
         
-        'password': value['password'],
+        'newPassword': value['newPassword'],
         'token': value['token'],
     };
 }

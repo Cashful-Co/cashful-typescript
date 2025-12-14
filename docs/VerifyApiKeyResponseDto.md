@@ -1,24 +1,24 @@
 
-# ResetPasswordDto
+# VerifyApiKeyResponseDto
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`newPassword` | string
-`token` | string
+`valid` | boolean
+`key` | object
 
 ## Example
 
 ```typescript
-import type { ResetPasswordDto } from '@cashful-co/typescript'
+import type { VerifyApiKeyResponseDto } from '@cashful-co/typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "newPassword": NewStrongPassword123!,
-  "token": token_12345,
-} satisfies ResetPasswordDto
+  "valid": false,
+  "key": {"id":"key_123","name":"My API Key"},
+} satisfies VerifyApiKeyResponseDto
 
 console.log(example)
 
@@ -27,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ResetPasswordDto
+const exampleParsed = JSON.parse(exampleJSON) as VerifyApiKeyResponseDto
 console.log(exampleParsed)
 ```
 

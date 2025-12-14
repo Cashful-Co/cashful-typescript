@@ -1,24 +1,24 @@
 
-# ResetPasswordDto
+# VerifyEmailResponseDto
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`newPassword` | string
-`token` | string
+`user` | [SessionUserDto](SessionUserDto.md)
+`status` | boolean
 
 ## Example
 
 ```typescript
-import type { ResetPasswordDto } from '@cashful-co/typescript'
+import type { VerifyEmailResponseDto } from '@cashful-co/typescript'
 
 // TODO: Update the object below with actual values
 const example = {
-  "newPassword": NewStrongPassword123!,
-  "token": token_12345,
-} satisfies ResetPasswordDto
+  "user": null,
+  "status": true,
+} satisfies VerifyEmailResponseDto
 
 console.log(example)
 
@@ -27,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ResetPasswordDto
+const exampleParsed = JSON.parse(exampleJSON) as VerifyEmailResponseDto
 console.log(exampleParsed)
 ```
 

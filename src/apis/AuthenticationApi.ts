@@ -16,67 +16,220 @@
 import * as runtime from '../runtime';
 import type {
   AcceptInvitationDto,
+  AcceptInvitationResponseDto,
   CancelInvitationDto,
+  CancelInvitationResponseDto,
+  ChangeEmailDto,
+  ChangeEmailResponseDto,
+  ChangePasswordDto,
+  ChangePasswordResponseDto,
+  CheckSlugDto,
+  CheckSlugResponseDto,
   CreateApiKeyDto,
+  CreateApiKeyResponseDto,
   CreateOrganizationDto,
+  CreateOrganizationResponseDto,
   DeleteApiKeyDto,
+  DeleteApiKeyResponseDto,
   DeleteOrganizationDto,
+  DeleteOrganizationResponseDto,
+  DeleteUserDto,
+  DeleteUserResponseDto,
   ErrorResponseDto,
   ForgotPasswordDto,
+  ForgotPasswordResponseDto,
+  GetActiveMemberResponseDto,
+  GetActiveMemberRoleResponseDto,
+  GetFullOrganizationResponseDto,
+  GetInvitationResponseDto,
   GetSessionResponseDto,
+  HasPermissionDto,
+  HasPermissionResponseDto,
   InviteMemberDto,
+  InviteMemberResponseDto,
+  LeaveOrganizationDto,
+  LeaveOrganizationResponseDto,
+  ListApiKeysResponseDto,
+  ListInvitationsResponseDto,
+  ListMembersResponseDto,
+  ListOrganizationsResponseDto,
+  ListSessionsResponseDto,
+  ListUserInvitationsResponseDto,
   RejectInvitationDto,
+  RejectInvitationResponseDto,
   RemoveMemberDto,
+  RemoveMemberResponseDto,
+  RequestPasswordResetDto,
+  RequestPasswordResetResponseDto,
+  ResetPasswordCallbackResponseDto,
   ResetPasswordDto,
+  ResetPasswordResponseDto,
+  RevokeSessionDto,
+  RevokeSessionResponseDto,
+  SendVerificationEmailDto,
+  SendVerificationEmailResponseDto,
   SetActiveOrganizationDto,
+  SetActiveOrganizationResponseDto,
   SignInDto,
+  SignInResponseDto,
+  SignOutResponseDto,
   SignUpDto,
+  SignUpResponseDto,
   UpdateApiKeyDto,
+  UpdateApiKeyResponseDto,
   UpdateMemberRoleDto,
+  UpdateMemberRoleResponseDto,
   UpdateOrganizationDto,
+  UpdateOrganizationResponseDto,
+  UpdateUserDto,
+  UpdateUserResponseDto,
   VerifyApiKeyDto,
+  VerifyApiKeyResponseDto,
+  VerifyEmailResponseDto,
 } from '../models/index';
 import {
     AcceptInvitationDtoFromJSON,
     AcceptInvitationDtoToJSON,
+    AcceptInvitationResponseDtoFromJSON,
+    AcceptInvitationResponseDtoToJSON,
     CancelInvitationDtoFromJSON,
     CancelInvitationDtoToJSON,
+    CancelInvitationResponseDtoFromJSON,
+    CancelInvitationResponseDtoToJSON,
+    ChangeEmailDtoFromJSON,
+    ChangeEmailDtoToJSON,
+    ChangeEmailResponseDtoFromJSON,
+    ChangeEmailResponseDtoToJSON,
+    ChangePasswordDtoFromJSON,
+    ChangePasswordDtoToJSON,
+    ChangePasswordResponseDtoFromJSON,
+    ChangePasswordResponseDtoToJSON,
+    CheckSlugDtoFromJSON,
+    CheckSlugDtoToJSON,
+    CheckSlugResponseDtoFromJSON,
+    CheckSlugResponseDtoToJSON,
     CreateApiKeyDtoFromJSON,
     CreateApiKeyDtoToJSON,
+    CreateApiKeyResponseDtoFromJSON,
+    CreateApiKeyResponseDtoToJSON,
     CreateOrganizationDtoFromJSON,
     CreateOrganizationDtoToJSON,
+    CreateOrganizationResponseDtoFromJSON,
+    CreateOrganizationResponseDtoToJSON,
     DeleteApiKeyDtoFromJSON,
     DeleteApiKeyDtoToJSON,
+    DeleteApiKeyResponseDtoFromJSON,
+    DeleteApiKeyResponseDtoToJSON,
     DeleteOrganizationDtoFromJSON,
     DeleteOrganizationDtoToJSON,
+    DeleteOrganizationResponseDtoFromJSON,
+    DeleteOrganizationResponseDtoToJSON,
+    DeleteUserDtoFromJSON,
+    DeleteUserDtoToJSON,
+    DeleteUserResponseDtoFromJSON,
+    DeleteUserResponseDtoToJSON,
     ErrorResponseDtoFromJSON,
     ErrorResponseDtoToJSON,
     ForgotPasswordDtoFromJSON,
     ForgotPasswordDtoToJSON,
+    ForgotPasswordResponseDtoFromJSON,
+    ForgotPasswordResponseDtoToJSON,
+    GetActiveMemberResponseDtoFromJSON,
+    GetActiveMemberResponseDtoToJSON,
+    GetActiveMemberRoleResponseDtoFromJSON,
+    GetActiveMemberRoleResponseDtoToJSON,
+    GetFullOrganizationResponseDtoFromJSON,
+    GetFullOrganizationResponseDtoToJSON,
+    GetInvitationResponseDtoFromJSON,
+    GetInvitationResponseDtoToJSON,
     GetSessionResponseDtoFromJSON,
     GetSessionResponseDtoToJSON,
+    HasPermissionDtoFromJSON,
+    HasPermissionDtoToJSON,
+    HasPermissionResponseDtoFromJSON,
+    HasPermissionResponseDtoToJSON,
     InviteMemberDtoFromJSON,
     InviteMemberDtoToJSON,
+    InviteMemberResponseDtoFromJSON,
+    InviteMemberResponseDtoToJSON,
+    LeaveOrganizationDtoFromJSON,
+    LeaveOrganizationDtoToJSON,
+    LeaveOrganizationResponseDtoFromJSON,
+    LeaveOrganizationResponseDtoToJSON,
+    ListApiKeysResponseDtoFromJSON,
+    ListApiKeysResponseDtoToJSON,
+    ListInvitationsResponseDtoFromJSON,
+    ListInvitationsResponseDtoToJSON,
+    ListMembersResponseDtoFromJSON,
+    ListMembersResponseDtoToJSON,
+    ListOrganizationsResponseDtoFromJSON,
+    ListOrganizationsResponseDtoToJSON,
+    ListSessionsResponseDtoFromJSON,
+    ListSessionsResponseDtoToJSON,
+    ListUserInvitationsResponseDtoFromJSON,
+    ListUserInvitationsResponseDtoToJSON,
     RejectInvitationDtoFromJSON,
     RejectInvitationDtoToJSON,
+    RejectInvitationResponseDtoFromJSON,
+    RejectInvitationResponseDtoToJSON,
     RemoveMemberDtoFromJSON,
     RemoveMemberDtoToJSON,
+    RemoveMemberResponseDtoFromJSON,
+    RemoveMemberResponseDtoToJSON,
+    RequestPasswordResetDtoFromJSON,
+    RequestPasswordResetDtoToJSON,
+    RequestPasswordResetResponseDtoFromJSON,
+    RequestPasswordResetResponseDtoToJSON,
+    ResetPasswordCallbackResponseDtoFromJSON,
+    ResetPasswordCallbackResponseDtoToJSON,
     ResetPasswordDtoFromJSON,
     ResetPasswordDtoToJSON,
+    ResetPasswordResponseDtoFromJSON,
+    ResetPasswordResponseDtoToJSON,
+    RevokeSessionDtoFromJSON,
+    RevokeSessionDtoToJSON,
+    RevokeSessionResponseDtoFromJSON,
+    RevokeSessionResponseDtoToJSON,
+    SendVerificationEmailDtoFromJSON,
+    SendVerificationEmailDtoToJSON,
+    SendVerificationEmailResponseDtoFromJSON,
+    SendVerificationEmailResponseDtoToJSON,
     SetActiveOrganizationDtoFromJSON,
     SetActiveOrganizationDtoToJSON,
+    SetActiveOrganizationResponseDtoFromJSON,
+    SetActiveOrganizationResponseDtoToJSON,
     SignInDtoFromJSON,
     SignInDtoToJSON,
+    SignInResponseDtoFromJSON,
+    SignInResponseDtoToJSON,
+    SignOutResponseDtoFromJSON,
+    SignOutResponseDtoToJSON,
     SignUpDtoFromJSON,
     SignUpDtoToJSON,
+    SignUpResponseDtoFromJSON,
+    SignUpResponseDtoToJSON,
     UpdateApiKeyDtoFromJSON,
     UpdateApiKeyDtoToJSON,
+    UpdateApiKeyResponseDtoFromJSON,
+    UpdateApiKeyResponseDtoToJSON,
     UpdateMemberRoleDtoFromJSON,
     UpdateMemberRoleDtoToJSON,
+    UpdateMemberRoleResponseDtoFromJSON,
+    UpdateMemberRoleResponseDtoToJSON,
     UpdateOrganizationDtoFromJSON,
     UpdateOrganizationDtoToJSON,
+    UpdateOrganizationResponseDtoFromJSON,
+    UpdateOrganizationResponseDtoToJSON,
+    UpdateUserDtoFromJSON,
+    UpdateUserDtoToJSON,
+    UpdateUserResponseDtoFromJSON,
+    UpdateUserResponseDtoToJSON,
     VerifyApiKeyDtoFromJSON,
     VerifyApiKeyDtoToJSON,
+    VerifyApiKeyResponseDtoFromJSON,
+    VerifyApiKeyResponseDtoToJSON,
+    VerifyEmailResponseDtoFromJSON,
+    VerifyEmailResponseDtoToJSON,
 } from '../models/index';
 
 export interface AcceptInvitationRequest {
@@ -85,6 +238,18 @@ export interface AcceptInvitationRequest {
 
 export interface CancelInvitationRequest {
     cancelInvitationDto: CancelInvitationDto;
+}
+
+export interface ChangeEmailRequest {
+    changeEmailDto: ChangeEmailDto;
+}
+
+export interface ChangePasswordRequest {
+    changePasswordDto: ChangePasswordDto;
+}
+
+export interface CheckSlugRequest {
+    checkSlugDto: CheckSlugDto;
 }
 
 export interface CreateApiKeyRequest {
@@ -103,12 +268,56 @@ export interface DeleteOrganizationRequest {
     deleteOrganizationDto: DeleteOrganizationDto;
 }
 
+export interface DeleteUserRequest {
+    deleteUserDto: DeleteUserDto;
+}
+
 export interface ForgetPasswordRequest {
     forgotPasswordDto: ForgotPasswordDto;
 }
 
+export interface GetActiveMemberRequest {
+    organizationId?: string;
+}
+
+export interface GetActiveMemberRoleRequest {
+    organizationId?: string;
+}
+
+export interface GetInvitationRequest {
+    invitationId: string;
+}
+
+export interface GetOrganizationRequest {
+    organizationId?: string;
+}
+
+export interface HasPermissionRequest {
+    hasPermissionDto: HasPermissionDto;
+}
+
 export interface InviteMemberRequest {
     inviteMemberDto: InviteMemberDto;
+}
+
+export interface LeaveOrganizationRequest {
+    leaveOrganizationDto: LeaveOrganizationDto;
+}
+
+export interface ListMembersRequest {
+    organizationId?: string;
+}
+
+export interface ListOrganizationInvitationsRequest {
+    organizationId?: string;
+}
+
+export interface ListOrganizationsRequest {
+    include?: boolean;
+}
+
+export interface ListUserInvitationsRequest {
+    status?: string;
 }
 
 export interface RejectInvitationRequest {
@@ -119,8 +328,25 @@ export interface RemoveMemberRequest {
     removeMemberDto: RemoveMemberDto;
 }
 
+export interface RequestPasswordResetRequest {
+    requestPasswordResetDto: RequestPasswordResetDto;
+}
+
 export interface ResetPasswordRequest {
     resetPasswordDto: ResetPasswordDto;
+}
+
+export interface ResetPasswordCallbackRequest {
+    callbackURL: string;
+    token: string;
+}
+
+export interface RevokeSessionRequest {
+    revokeSessionDto: RevokeSessionDto;
+}
+
+export interface SendVerificationEmailRequest {
+    sendVerificationEmailDto: SendVerificationEmailDto;
 }
 
 export interface SetActiveOrganizationRequest {
@@ -147,8 +373,17 @@ export interface UpdateOrganizationRequest {
     updateOrganizationDto: UpdateOrganizationDto;
 }
 
+export interface UpdateUserRequest {
+    updateUserDto: UpdateUserDto;
+}
+
 export interface VerifyApiKeyRequest {
     verifyApiKeyDto: VerifyApiKeyDto;
+}
+
+export interface VerifyEmailRequest {
+    token: string;
+    callbackURL?: string;
 }
 
 /**
@@ -160,7 +395,7 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Accept an invitation to an organization
      * Accept Invitation
      */
-    async acceptInvitationRaw(requestParameters: AcceptInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async acceptInvitationRaw(requestParameters: AcceptInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AcceptInvitationResponseDto>> {
         if (requestParameters['acceptInvitationDto'] == null) {
             throw new runtime.RequiredError(
                 'acceptInvitationDto',
@@ -193,22 +428,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: AcceptInvitationDtoToJSON(requestParameters['acceptInvitationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => AcceptInvitationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Accept an invitation to an organization
      * Accept Invitation
      */
-    async acceptInvitation(acceptInvitationDto: AcceptInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.acceptInvitationRaw({ acceptInvitationDto: acceptInvitationDto }, initOverrides);
+    async acceptInvitation(acceptInvitationDto: AcceptInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AcceptInvitationResponseDto> {
+        const response = await this.acceptInvitationRaw({ acceptInvitationDto: acceptInvitationDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Cancel an invitation to an organization
      * Cancel Invitation
      */
-    async cancelInvitationRaw(requestParameters: CancelInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async cancelInvitationRaw(requestParameters: CancelInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelInvitationResponseDto>> {
         if (requestParameters['cancelInvitationDto'] == null) {
             throw new runtime.RequiredError(
                 'cancelInvitationDto',
@@ -241,22 +477,170 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: CancelInvitationDtoToJSON(requestParameters['cancelInvitationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CancelInvitationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Cancel an invitation to an organization
      * Cancel Invitation
      */
-    async cancelInvitation(cancelInvitationDto: CancelInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.cancelInvitationRaw({ cancelInvitationDto: cancelInvitationDto }, initOverrides);
+    async cancelInvitation(cancelInvitationDto: CancelInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelInvitationResponseDto> {
+        const response = await this.cancelInvitationRaw({ cancelInvitationDto: cancelInvitationDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Change the email address of the current user
+     * Change Email
+     */
+    async changeEmailRaw(requestParameters: ChangeEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeEmailResponseDto>> {
+        if (requestParameters['changeEmailDto'] == null) {
+            throw new runtime.RequiredError(
+                'changeEmailDto',
+                'Required parameter "changeEmailDto" was null or undefined when calling changeEmail().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/change-email`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChangeEmailDtoToJSON(requestParameters['changeEmailDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChangeEmailResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Change the email address of the current user
+     * Change Email
+     */
+    async changeEmail(changeEmailDto: ChangeEmailDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeEmailResponseDto> {
+        const response = await this.changeEmailRaw({ changeEmailDto: changeEmailDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Change the password of the current user
+     * Change Password
+     */
+    async changePasswordRaw(requestParameters: ChangePasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangePasswordResponseDto>> {
+        if (requestParameters['changePasswordDto'] == null) {
+            throw new runtime.RequiredError(
+                'changePasswordDto',
+                'Required parameter "changePasswordDto" was null or undefined when calling changePassword().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/change-password`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChangePasswordDtoToJSON(requestParameters['changePasswordDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChangePasswordResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Change the password of the current user
+     * Change Password
+     */
+    async changePassword(changePasswordDto: ChangePasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangePasswordResponseDto> {
+        const response = await this.changePasswordRaw({ changePasswordDto: changePasswordDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Check if organization slug is available
+     * Check Slug
+     */
+    async checkSlugRaw(requestParameters: CheckSlugRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckSlugResponseDto>> {
+        if (requestParameters['checkSlugDto'] == null) {
+            throw new runtime.RequiredError(
+                'checkSlugDto',
+                'Required parameter "checkSlugDto" was null or undefined when calling checkSlug().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/check-slug`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CheckSlugDtoToJSON(requestParameters['checkSlugDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CheckSlugResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Check if organization slug is available
+     * Check Slug
+     */
+    async checkSlug(checkSlugDto: CheckSlugDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CheckSlugResponseDto> {
+        const response = await this.checkSlugRaw({ checkSlugDto: checkSlugDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Create a new API key
      * Create API Key
      */
-    async createApiKeyRaw(requestParameters: CreateApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async createApiKeyRaw(requestParameters: CreateApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateApiKeyResponseDto>> {
         if (requestParameters['createApiKeyDto'] == null) {
             throw new runtime.RequiredError(
                 'createApiKeyDto',
@@ -289,22 +673,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: CreateApiKeyDtoToJSON(requestParameters['createApiKeyDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateApiKeyResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Create a new API key
      * Create API Key
      */
-    async createApiKey(createApiKeyDto: CreateApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.createApiKeyRaw({ createApiKeyDto: createApiKeyDto }, initOverrides);
+    async createApiKey(createApiKeyDto: CreateApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateApiKeyResponseDto> {
+        const response = await this.createApiKeyRaw({ createApiKeyDto: createApiKeyDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Create a new organization
      * Create Organization
      */
-    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateOrganizationResponseDto>> {
         if (requestParameters['createOrganizationDto'] == null) {
             throw new runtime.RequiredError(
                 'createOrganizationDto',
@@ -337,22 +722,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: CreateOrganizationDtoToJSON(requestParameters['createOrganizationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateOrganizationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Create a new organization
      * Create Organization
      */
-    async createOrganization(createOrganizationDto: CreateOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.createOrganizationRaw({ createOrganizationDto: createOrganizationDto }, initOverrides);
+    async createOrganization(createOrganizationDto: CreateOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateOrganizationResponseDto> {
+        const response = await this.createOrganizationRaw({ createOrganizationDto: createOrganizationDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Delete an API key
      * Delete API Key
      */
-    async deleteApiKeyRaw(requestParameters: DeleteApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteApiKeyRaw(requestParameters: DeleteApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteApiKeyResponseDto>> {
         if (requestParameters['deleteApiKeyDto'] == null) {
             throw new runtime.RequiredError(
                 'deleteApiKeyDto',
@@ -385,22 +771,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: DeleteApiKeyDtoToJSON(requestParameters['deleteApiKeyDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteApiKeyResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Delete an API key
      * Delete API Key
      */
-    async deleteApiKey(deleteApiKeyDto: DeleteApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteApiKeyRaw({ deleteApiKeyDto: deleteApiKeyDto }, initOverrides);
+    async deleteApiKey(deleteApiKeyDto: DeleteApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteApiKeyResponseDto> {
+        const response = await this.deleteApiKeyRaw({ deleteApiKeyDto: deleteApiKeyDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Delete an organization
      * Delete Organization
      */
-    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteOrganizationResponseDto>> {
         if (requestParameters['deleteOrganizationDto'] == null) {
             throw new runtime.RequiredError(
                 'deleteOrganizationDto',
@@ -433,22 +820,72 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: DeleteOrganizationDtoToJSON(requestParameters['deleteOrganizationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteOrganizationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Delete an organization
      * Delete Organization
      */
-    async deleteOrganization(deleteOrganizationDto: DeleteOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteOrganizationRaw({ deleteOrganizationDto: deleteOrganizationDto }, initOverrides);
+    async deleteOrganization(deleteOrganizationDto: DeleteOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteOrganizationResponseDto> {
+        const response = await this.deleteOrganizationRaw({ deleteOrganizationDto: deleteOrganizationDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete the current user\'s account
+     * Delete User
+     */
+    async deleteUserRaw(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeleteUserResponseDto>> {
+        if (requestParameters['deleteUserDto'] == null) {
+            throw new runtime.RequiredError(
+                'deleteUserDto',
+                'Required parameter "deleteUserDto" was null or undefined when calling deleteUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/delete-user`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DeleteUserDtoToJSON(requestParameters['deleteUserDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeleteUserResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete the current user\'s account
+     * Delete User
+     */
+    async deleteUser(deleteUserDto: DeleteUserDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeleteUserResponseDto> {
+        const response = await this.deleteUserRaw({ deleteUserDto: deleteUserDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Send a password reset email to the user
      * Forget Password
      */
-    async forgetPasswordRaw(requestParameters: ForgetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async forgetPasswordRaw(requestParameters: ForgetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForgotPasswordResponseDto>> {
         if (requestParameters['forgotPasswordDto'] == null) {
             throw new runtime.RequiredError(
                 'forgotPasswordDto',
@@ -473,15 +910,195 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: ForgotPasswordDtoToJSON(requestParameters['forgotPasswordDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ForgotPasswordResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Send a password reset email to the user
      * Forget Password
      */
-    async forgetPassword(forgotPasswordDto: ForgotPasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.forgetPasswordRaw({ forgotPasswordDto: forgotPasswordDto }, initOverrides);
+    async forgetPassword(forgotPasswordDto: ForgotPasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ForgotPasswordResponseDto> {
+        const response = await this.forgetPasswordRaw({ forgotPasswordDto: forgotPasswordDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get the member details of the active organization
+     * Get Active Member
+     */
+    async getActiveMemberRaw(requestParameters: GetActiveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetActiveMemberResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['organizationId'] != null) {
+            queryParameters['organizationId'] = requestParameters['organizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/get-active-member`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetActiveMemberResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Get the member details of the active organization
+     * Get Active Member
+     */
+    async getActiveMember(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetActiveMemberResponseDto> {
+        const response = await this.getActiveMemberRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get the role of the current user in the active organization
+     * Get Active Member Role
+     */
+    async getActiveMemberRoleRaw(requestParameters: GetActiveMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetActiveMemberRoleResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['organizationId'] != null) {
+            queryParameters['organizationId'] = requestParameters['organizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/get-active-member-role`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetActiveMemberRoleResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Get the role of the current user in the active organization
+     * Get Active Member Role
+     */
+    async getActiveMemberRole(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetActiveMemberRoleResponseDto> {
+        const response = await this.getActiveMemberRoleRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get an invitation by ID
+     * Get Invitation
+     */
+    async getInvitationRaw(requestParameters: GetInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetInvitationResponseDto>> {
+        if (requestParameters['invitationId'] == null) {
+            throw new runtime.RequiredError(
+                'invitationId',
+                'Required parameter "invitationId" was null or undefined when calling getInvitation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['invitationId'] != null) {
+            queryParameters['invitationId'] = requestParameters['invitationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/get-invitation`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetInvitationResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Get an invitation by ID
+     * Get Invitation
+     */
+    async getInvitation(invitationId: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetInvitationResponseDto> {
+        const response = await this.getInvitationRaw({ invitationId: invitationId }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get the full organization details
+     * Get Full Organization
+     */
+    async getOrganizationRaw(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFullOrganizationResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['organizationId'] != null) {
+            queryParameters['organizationId'] = requestParameters['organizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/get-full-organization`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetFullOrganizationResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Get the full organization details
+     * Get Full Organization
+     */
+    async getOrganization(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFullOrganizationResponseDto> {
+        const response = await this.getOrganizationRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -524,10 +1141,59 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Check if a user has permission
+     * Has Permission
+     */
+    async hasPermissionRaw(requestParameters: HasPermissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HasPermissionResponseDto>> {
+        if (requestParameters['hasPermissionDto'] == null) {
+            throw new runtime.RequiredError(
+                'hasPermissionDto',
+                'Required parameter "hasPermissionDto" was null or undefined when calling hasPermission().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/has-permission`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: HasPermissionDtoToJSON(requestParameters['hasPermissionDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => HasPermissionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Check if a user has permission
+     * Has Permission
+     */
+    async hasPermission(hasPermissionDto: HasPermissionDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HasPermissionResponseDto> {
+        const response = await this.hasPermissionRaw({ hasPermissionDto: hasPermissionDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Invite a user to an organization
      * Invite Member
      */
-    async inviteMemberRaw(requestParameters: InviteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async inviteMemberRaw(requestParameters: InviteMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteMemberResponseDto>> {
         if (requestParameters['inviteMemberDto'] == null) {
             throw new runtime.RequiredError(
                 'inviteMemberDto',
@@ -560,22 +1226,72 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: InviteMemberDtoToJSON(requestParameters['inviteMemberDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => InviteMemberResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Invite a user to an organization
      * Invite Member
      */
-    async inviteMember(inviteMemberDto: InviteMemberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.inviteMemberRaw({ inviteMemberDto: inviteMemberDto }, initOverrides);
+    async inviteMember(inviteMemberDto: InviteMemberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteMemberResponseDto> {
+        const response = await this.inviteMemberRaw({ inviteMemberDto: inviteMemberDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Leave an organization
+     * Leave Organization
+     */
+    async leaveOrganizationRaw(requestParameters: LeaveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LeaveOrganizationResponseDto>> {
+        if (requestParameters['leaveOrganizationDto'] == null) {
+            throw new runtime.RequiredError(
+                'leaveOrganizationDto',
+                'Required parameter "leaveOrganizationDto" was null or undefined when calling leaveOrganization().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/leave`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: LeaveOrganizationDtoToJSON(requestParameters['leaveOrganizationDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LeaveOrganizationResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Leave an organization
+     * Leave Organization
+     */
+    async leaveOrganization(leaveOrganizationDto: LeaveOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaveOrganizationResponseDto> {
+        const response = await this.leaveOrganizationRaw({ leaveOrganizationDto: leaveOrganizationDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * List all API keys for the current user
      * List API Keys
      */
-    async listApiKeysRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async listApiKeysRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListApiKeysResponseDto>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -598,23 +1314,114 @@ export class AuthenticationApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListApiKeysResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * List all API keys for the current user
      * List API Keys
      */
-    async listApiKeys(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.listApiKeysRaw(initOverrides);
+    async listApiKeys(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListApiKeysResponseDto> {
+        const response = await this.listApiKeysRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List all members of an organization
+     * List Members
+     */
+    async listMembersRaw(requestParameters: ListMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMembersResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['organizationId'] != null) {
+            queryParameters['organizationId'] = requestParameters['organizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/list-members`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListMembersResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * List all members of an organization
+     * List Members
+     */
+    async listMembers(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMembersResponseDto> {
+        const response = await this.listMembersRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List all invitations a user has received
+     * List Invitations
+     */
+    async listOrganizationInvitationsRaw(requestParameters: ListOrganizationInvitationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInvitationsResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['organizationId'] != null) {
+            queryParameters['organizationId'] = requestParameters['organizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/list-invitations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListInvitationsResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * List all invitations a user has received
+     * List Invitations
+     */
+    async listOrganizationInvitations(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInvitationsResponseDto> {
+        const response = await this.listOrganizationInvitationsRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
     }
 
     /**
      * List all organizations for the current user
      * List Organizations
      */
-    async listOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async listOrganizationsRaw(requestParameters: ListOrganizationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationsResponseDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['include'] != null) {
+            queryParameters['include'] = requestParameters['include'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -636,22 +1443,105 @@ export class AuthenticationApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListOrganizationsResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * List all organizations for the current user
      * List Organizations
      */
-    async listOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.listOrganizationsRaw(initOverrides);
+    async listOrganizations(include?: boolean, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationsResponseDto> {
+        const response = await this.listOrganizationsRaw({ include: include }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List all invitations a user has received
+     * List User Invitations
+     */
+    async listUserInvitationsRaw(requestParameters: ListUserInvitationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListUserInvitationsResponseDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/organization/list-user-invitations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListUserInvitationsResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * List all invitations a user has received
+     * List User Invitations
+     */
+    async listUserInvitations(status?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListUserInvitationsResponseDto> {
+        const response = await this.listUserInvitationsRaw({ status: status }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List all active sessions for the user
+     * List User Sessions
+     */
+    async listUserSessionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListSessionsResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/list-sessions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListSessionsResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * List all active sessions for the user
+     * List User Sessions
+     */
+    async listUserSessions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListSessionsResponseDto> {
+        const response = await this.listUserSessionsRaw(initOverrides);
+        return await response.value();
     }
 
     /**
      * Reject an invitation to an organization
      * Reject Invitation
      */
-    async rejectInvitationRaw(requestParameters: RejectInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async rejectInvitationRaw(requestParameters: RejectInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RejectInvitationResponseDto>> {
         if (requestParameters['rejectInvitationDto'] == null) {
             throw new runtime.RequiredError(
                 'rejectInvitationDto',
@@ -684,22 +1574,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: RejectInvitationDtoToJSON(requestParameters['rejectInvitationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => RejectInvitationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Reject an invitation to an organization
      * Reject Invitation
      */
-    async rejectInvitation(rejectInvitationDto: RejectInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.rejectInvitationRaw({ rejectInvitationDto: rejectInvitationDto }, initOverrides);
+    async rejectInvitation(rejectInvitationDto: RejectInvitationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RejectInvitationResponseDto> {
+        const response = await this.rejectInvitationRaw({ rejectInvitationDto: rejectInvitationDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Remove a member from an organization
      * Remove Member
      */
-    async removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RemoveMemberResponseDto>> {
         if (requestParameters['removeMemberDto'] == null) {
             throw new runtime.RequiredError(
                 'removeMemberDto',
@@ -732,22 +1623,64 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: RemoveMemberDtoToJSON(requestParameters['removeMemberDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => RemoveMemberResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Remove a member from an organization
      * Remove Member
      */
-    async removeMember(removeMemberDto: RemoveMemberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.removeMemberRaw({ removeMemberDto: removeMemberDto }, initOverrides);
+    async removeMember(removeMemberDto: RemoveMemberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RemoveMemberResponseDto> {
+        const response = await this.removeMemberRaw({ removeMemberDto: removeMemberDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Send a password reset email to the user
+     * Request Password Reset
+     */
+    async requestPasswordResetRaw(requestParameters: RequestPasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestPasswordResetResponseDto>> {
+        if (requestParameters['requestPasswordResetDto'] == null) {
+            throw new runtime.RequiredError(
+                'requestPasswordResetDto',
+                'Required parameter "requestPasswordResetDto" was null or undefined when calling requestPasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/request-password-reset`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RequestPasswordResetDtoToJSON(requestParameters['requestPasswordResetDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RequestPasswordResetResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Send a password reset email to the user
+     * Request Password Reset
+     */
+    async requestPasswordReset(requestPasswordResetDto: RequestPasswordResetDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestPasswordResetResponseDto> {
+        const response = await this.requestPasswordResetRaw({ requestPasswordResetDto: requestPasswordResetDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Reset the user\'s password using a token
      * Reset Password
      */
-    async resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResetPasswordResponseDto>> {
         if (requestParameters['resetPasswordDto'] == null) {
             throw new runtime.RequiredError(
                 'resetPasswordDto',
@@ -772,22 +1705,163 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: ResetPasswordDtoToJSON(requestParameters['resetPasswordDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResetPasswordResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Reset the user\'s password using a token
      * Reset Password
      */
-    async resetPassword(resetPasswordDto: ResetPasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.resetPasswordRaw({ resetPasswordDto: resetPasswordDto }, initOverrides);
+    async resetPassword(resetPasswordDto: ResetPasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResetPasswordResponseDto> {
+        const response = await this.resetPasswordRaw({ resetPasswordDto: resetPasswordDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Redirects user to callback URL with token
+     * Reset Password Callback
+     */
+    async resetPasswordCallbackRaw(requestParameters: ResetPasswordCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResetPasswordCallbackResponseDto>> {
+        if (requestParameters['callbackURL'] == null) {
+            throw new runtime.RequiredError(
+                'callbackURL',
+                'Required parameter "callbackURL" was null or undefined when calling resetPasswordCallback().'
+            );
+        }
+
+        if (requestParameters['token'] == null) {
+            throw new runtime.RequiredError(
+                'token',
+                'Required parameter "token" was null or undefined when calling resetPasswordCallback().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['callbackURL'] != null) {
+            queryParameters['callbackURL'] = requestParameters['callbackURL'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/canary/authentication/reset-password/{token}`;
+        urlPath = urlPath.replace(`{${"token"}}`, encodeURIComponent(String(requestParameters['token'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResetPasswordCallbackResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Redirects user to callback URL with token
+     * Reset Password Callback
+     */
+    async resetPasswordCallback(callbackURL: string, token: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResetPasswordCallbackResponseDto> {
+        const response = await this.resetPasswordCallbackRaw({ callbackURL: callbackURL, token: token }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Revoke a specific session
+     * Revoke Session
+     */
+    async revokeSessionRaw(requestParameters: RevokeSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevokeSessionResponseDto>> {
+        if (requestParameters['revokeSessionDto'] == null) {
+            throw new runtime.RequiredError(
+                'revokeSessionDto',
+                'Required parameter "revokeSessionDto" was null or undefined when calling revokeSession().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/revoke-session`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RevokeSessionDtoToJSON(requestParameters['revokeSessionDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RevokeSessionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Revoke a specific session
+     * Revoke Session
+     */
+    async revokeSession(revokeSessionDto: RevokeSessionDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RevokeSessionResponseDto> {
+        const response = await this.revokeSessionRaw({ revokeSessionDto: revokeSessionDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Send a verification email to the user
+     * Send Verification Email
+     */
+    async sendVerificationEmailRaw(requestParameters: SendVerificationEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendVerificationEmailResponseDto>> {
+        if (requestParameters['sendVerificationEmailDto'] == null) {
+            throw new runtime.RequiredError(
+                'sendVerificationEmailDto',
+                'Required parameter "sendVerificationEmailDto" was null or undefined when calling sendVerificationEmail().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/send-verification-email`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SendVerificationEmailDtoToJSON(requestParameters['sendVerificationEmailDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SendVerificationEmailResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Send a verification email to the user
+     * Send Verification Email
+     */
+    async sendVerificationEmail(sendVerificationEmailDto: SendVerificationEmailDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendVerificationEmailResponseDto> {
+        const response = await this.sendVerificationEmailRaw({ sendVerificationEmailDto: sendVerificationEmailDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Set the active organization for the current session
      * Set Active Organization
      */
-    async setActiveOrganizationRaw(requestParameters: SetActiveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async setActiveOrganizationRaw(requestParameters: SetActiveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetActiveOrganizationResponseDto>> {
         if (requestParameters['setActiveOrganizationDto'] == null) {
             throw new runtime.RequiredError(
                 'setActiveOrganizationDto',
@@ -820,22 +1894,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: SetActiveOrganizationDtoToJSON(requestParameters['setActiveOrganizationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SetActiveOrganizationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Set the active organization for the current session
      * Set Active Organization
      */
-    async setActiveOrganization(setActiveOrganizationDto: SetActiveOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.setActiveOrganizationRaw({ setActiveOrganizationDto: setActiveOrganizationDto }, initOverrides);
+    async setActiveOrganization(setActiveOrganizationDto: SetActiveOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetActiveOrganizationResponseDto> {
+        const response = await this.setActiveOrganizationRaw({ setActiveOrganizationDto: setActiveOrganizationDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Authenticate a user using email and password
      * Sign in with email
      */
-    async signInEmailRaw(requestParameters: SignInEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async signInEmailRaw(requestParameters: SignInEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInResponseDto>> {
         if (requestParameters['signInDto'] == null) {
             throw new runtime.RequiredError(
                 'signInDto',
@@ -860,22 +1935,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: SignInDtoToJSON(requestParameters['signInDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignInResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Authenticate a user using email and password
      * Sign in with email
      */
-    async signInEmail(signInDto: SignInDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.signInEmailRaw({ signInDto: signInDto }, initOverrides);
+    async signInEmail(signInDto: SignInDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInResponseDto> {
+        const response = await this.signInEmailRaw({ signInDto: signInDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Sign out the current user and invalidate the session
      * Sign out
      */
-    async signOutRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async signOutRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignOutResponseDto>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -898,22 +1974,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignOutResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Sign out the current user and invalidate the session
      * Sign out
      */
-    async signOut(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.signOutRaw(initOverrides);
+    async signOut(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignOutResponseDto> {
+        const response = await this.signOutRaw(initOverrides);
+        return await response.value();
     }
 
     /**
      * Create a new user account using email and password
      * Sign up with email
      */
-    async signUpEmailRaw(requestParameters: SignUpEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async signUpEmailRaw(requestParameters: SignUpEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignUpResponseDto>> {
         if (requestParameters['signUpDto'] == null) {
             throw new runtime.RequiredError(
                 'signUpDto',
@@ -938,22 +2015,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: SignUpDtoToJSON(requestParameters['signUpDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignUpResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Create a new user account using email and password
      * Sign up with email
      */
-    async signUpEmail(signUpDto: SignUpDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.signUpEmailRaw({ signUpDto: signUpDto }, initOverrides);
+    async signUpEmail(signUpDto: SignUpDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignUpResponseDto> {
+        const response = await this.signUpEmailRaw({ signUpDto: signUpDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Update an API key
      * Update API Key
      */
-    async updateApiKeyRaw(requestParameters: UpdateApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async updateApiKeyRaw(requestParameters: UpdateApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateApiKeyResponseDto>> {
         if (requestParameters['updateApiKeyDto'] == null) {
             throw new runtime.RequiredError(
                 'updateApiKeyDto',
@@ -986,22 +2064,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: UpdateApiKeyDtoToJSON(requestParameters['updateApiKeyDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateApiKeyResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Update an API key
      * Update API Key
      */
-    async updateApiKey(updateApiKeyDto: UpdateApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.updateApiKeyRaw({ updateApiKeyDto: updateApiKeyDto }, initOverrides);
+    async updateApiKey(updateApiKeyDto: UpdateApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateApiKeyResponseDto> {
+        const response = await this.updateApiKeyRaw({ updateApiKeyDto: updateApiKeyDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Update a member\'s role in an organization
      * Update Member Role
      */
-    async updateMemberRoleRaw(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async updateMemberRoleRaw(requestParameters: UpdateMemberRoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateMemberRoleResponseDto>> {
         if (requestParameters['updateMemberRoleDto'] == null) {
             throw new runtime.RequiredError(
                 'updateMemberRoleDto',
@@ -1034,22 +2113,23 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: UpdateMemberRoleDtoToJSON(requestParameters['updateMemberRoleDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateMemberRoleResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Update a member\'s role in an organization
      * Update Member Role
      */
-    async updateMemberRole(updateMemberRoleDto: UpdateMemberRoleDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.updateMemberRoleRaw({ updateMemberRoleDto: updateMemberRoleDto }, initOverrides);
+    async updateMemberRole(updateMemberRoleDto: UpdateMemberRoleDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateMemberRoleResponseDto> {
+        const response = await this.updateMemberRoleRaw({ updateMemberRoleDto: updateMemberRoleDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Update an organization\'s details
      * Update Organization
      */
-    async updateOrganizationRaw(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async updateOrganizationRaw(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateOrganizationResponseDto>> {
         if (requestParameters['updateOrganizationDto'] == null) {
             throw new runtime.RequiredError(
                 'updateOrganizationDto',
@@ -1082,22 +2162,72 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: UpdateOrganizationDtoToJSON(requestParameters['updateOrganizationDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateOrganizationResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Update an organization\'s details
      * Update Organization
      */
-    async updateOrganization(updateOrganizationDto: UpdateOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.updateOrganizationRaw({ updateOrganizationDto: updateOrganizationDto }, initOverrides);
+    async updateOrganization(updateOrganizationDto: UpdateOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateOrganizationResponseDto> {
+        const response = await this.updateOrganizationRaw({ updateOrganizationDto: updateOrganizationDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update the current user\'s information
+     * Update User
+     */
+    async updateUserRaw(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateUserResponseDto>> {
+        if (requestParameters['updateUserDto'] == null) {
+            throw new runtime.RequiredError(
+                'updateUserDto',
+                'Required parameter "updateUserDto" was null or undefined when calling updateUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/update-user`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateUserDtoToJSON(requestParameters['updateUserDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateUserResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Update the current user\'s information
+     * Update User
+     */
+    async updateUser(updateUserDto: UpdateUserDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateUserResponseDto> {
+        const response = await this.updateUserRaw({ updateUserDto: updateUserDto }, initOverrides);
+        return await response.value();
     }
 
     /**
      * Verify an API key
      * Verify API Key
      */
-    async verifyApiKeyRaw(requestParameters: VerifyApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async verifyApiKeyRaw(requestParameters: VerifyApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyApiKeyResponseDto>> {
         if (requestParameters['verifyApiKeyDto'] == null) {
             throw new runtime.RequiredError(
                 'verifyApiKeyDto',
@@ -1122,15 +2252,62 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: VerifyApiKeyDtoToJSON(requestParameters['verifyApiKeyDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => VerifyApiKeyResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Verify an API key
      * Verify API Key
      */
-    async verifyApiKey(verifyApiKeyDto: VerifyApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.verifyApiKeyRaw({ verifyApiKeyDto: verifyApiKeyDto }, initOverrides);
+    async verifyApiKey(verifyApiKeyDto: VerifyApiKeyDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyApiKeyResponseDto> {
+        const response = await this.verifyApiKeyRaw({ verifyApiKeyDto: verifyApiKeyDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Verify the email of a user
+     * Verify Email
+     */
+    async verifyEmailRaw(requestParameters: VerifyEmailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyEmailResponseDto>> {
+        if (requestParameters['token'] == null) {
+            throw new runtime.RequiredError(
+                'token',
+                'Required parameter "token" was null or undefined when calling verifyEmail().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['callbackURL'] != null) {
+            queryParameters['callbackURL'] = requestParameters['callbackURL'];
+        }
+
+        if (requestParameters['token'] != null) {
+            queryParameters['token'] = requestParameters['token'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/canary/authentication/verify-email`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VerifyEmailResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Verify the email of a user
+     * Verify Email
+     */
+    async verifyEmail(token: string, callbackURL?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyEmailResponseDto> {
+        const response = await this.verifyEmailRaw({ token: token, callbackURL: callbackURL }, initOverrides);
+        return await response.value();
     }
 
 }

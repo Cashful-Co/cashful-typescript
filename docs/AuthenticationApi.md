@@ -6,18 +6,36 @@ All URIs are relative to *http://localhost:3000*
 |------------- | ------------- | -------------|
 | [**acceptInvitation**](AuthenticationApi.md#acceptinvitation) | **POST** /api/canary/authentication/organization/accept-invitation | Accept Invitation |
 | [**cancelInvitation**](AuthenticationApi.md#cancelinvitation) | **POST** /api/canary/authentication/organization/cancel-invitation | Cancel Invitation |
+| [**changeEmail**](AuthenticationApi.md#changeemail) | **POST** /api/canary/authentication/change-email | Change Email |
+| [**changePassword**](AuthenticationApi.md#changepassword) | **POST** /api/canary/authentication/change-password | Change Password |
+| [**checkSlug**](AuthenticationApi.md#checkslug) | **POST** /api/canary/authentication/organization/check-slug | Check Slug |
 | [**createApiKey**](AuthenticationApi.md#createapikey) | **POST** /api/canary/authentication/api-key/create | Create API Key |
 | [**createOrganization**](AuthenticationApi.md#createorganization) | **POST** /api/canary/authentication/organization/create | Create Organization |
 | [**deleteApiKey**](AuthenticationApi.md#deleteapikey) | **POST** /api/canary/authentication/api-key/delete | Delete API Key |
 | [**deleteOrganization**](AuthenticationApi.md#deleteorganization) | **POST** /api/canary/authentication/organization/delete | Delete Organization |
+| [**deleteUser**](AuthenticationApi.md#deleteuser) | **POST** /api/canary/authentication/delete-user | Delete User |
 | [**forgetPassword**](AuthenticationApi.md#forgetpassword) | **POST** /api/canary/authentication/forget-password | Forget Password |
+| [**getActiveMember**](AuthenticationApi.md#getactivemember) | **GET** /api/canary/authentication/organization/get-active-member | Get Active Member |
+| [**getActiveMemberRole**](AuthenticationApi.md#getactivememberrole) | **GET** /api/canary/authentication/organization/get-active-member-role | Get Active Member Role |
+| [**getInvitation**](AuthenticationApi.md#getinvitation) | **GET** /api/canary/authentication/organization/get-invitation | Get Invitation |
+| [**getOrganization**](AuthenticationApi.md#getorganization) | **GET** /api/canary/authentication/organization/get-full-organization | Get Full Organization |
 | [**getSession**](AuthenticationApi.md#getsession) | **GET** /api/canary/authentication/get-session | Get Session |
+| [**hasPermission**](AuthenticationApi.md#haspermission) | **POST** /api/canary/authentication/organization/has-permission | Has Permission |
 | [**inviteMember**](AuthenticationApi.md#invitemember) | **POST** /api/canary/authentication/organization/invite-member | Invite Member |
+| [**leaveOrganization**](AuthenticationApi.md#leaveorganization) | **POST** /api/canary/authentication/organization/leave | Leave Organization |
 | [**listApiKeys**](AuthenticationApi.md#listapikeys) | **GET** /api/canary/authentication/api-key/list | List API Keys |
+| [**listMembers**](AuthenticationApi.md#listmembers) | **GET** /api/canary/authentication/organization/list-members | List Members |
+| [**listOrganizationInvitations**](AuthenticationApi.md#listorganizationinvitations) | **GET** /api/canary/authentication/organization/list-invitations | List Invitations |
 | [**listOrganizations**](AuthenticationApi.md#listorganizations) | **GET** /api/canary/authentication/organization/list | List Organizations |
+| [**listUserInvitations**](AuthenticationApi.md#listuserinvitations) | **GET** /api/canary/authentication/organization/list-user-invitations | List User Invitations |
+| [**listUserSessions**](AuthenticationApi.md#listusersessions) | **GET** /api/canary/authentication/list-sessions | List User Sessions |
 | [**rejectInvitation**](AuthenticationApi.md#rejectinvitation) | **POST** /api/canary/authentication/organization/reject-invitation | Reject Invitation |
 | [**removeMember**](AuthenticationApi.md#removemember) | **POST** /api/canary/authentication/organization/remove-member | Remove Member |
+| [**requestPasswordReset**](AuthenticationApi.md#requestpasswordreset) | **POST** /api/canary/authentication/request-password-reset | Request Password Reset |
 | [**resetPassword**](AuthenticationApi.md#resetpassword) | **POST** /api/canary/authentication/reset-password | Reset Password |
+| [**resetPasswordCallback**](AuthenticationApi.md#resetpasswordcallback) | **GET** /api/canary/authentication/reset-password/{token} | Reset Password Callback |
+| [**revokeSession**](AuthenticationApi.md#revokesession) | **POST** /api/canary/authentication/revoke-session | Revoke Session |
+| [**sendVerificationEmail**](AuthenticationApi.md#sendverificationemail) | **POST** /api/canary/authentication/send-verification-email | Send Verification Email |
 | [**setActiveOrganization**](AuthenticationApi.md#setactiveorganization) | **POST** /api/canary/authentication/organization/set-active | Set Active Organization |
 | [**signInEmail**](AuthenticationApi.md#signinemail) | **POST** /api/canary/authentication/sign-in/email | Sign in with email |
 | [**signOut**](AuthenticationApi.md#signout) | **POST** /api/canary/authentication/sign-out | Sign out |
@@ -25,13 +43,15 @@ All URIs are relative to *http://localhost:3000*
 | [**updateApiKey**](AuthenticationApi.md#updateapikey) | **POST** /api/canary/authentication/api-key/update | Update API Key |
 | [**updateMemberRole**](AuthenticationApi.md#updatememberrole) | **POST** /api/canary/authentication/organization/update-member-role | Update Member Role |
 | [**updateOrganization**](AuthenticationApi.md#updateorganization) | **POST** /api/canary/authentication/organization/update | Update Organization |
+| [**updateUser**](AuthenticationApi.md#updateuser) | **POST** /api/canary/authentication/update-user | Update User |
 | [**verifyApiKey**](AuthenticationApi.md#verifyapikey) | **POST** /api/canary/authentication/api-key/verify | Verify API Key |
+| [**verifyEmail**](AuthenticationApi.md#verifyemail) | **GET** /api/canary/authentication/verify-email | Verify Email |
 
 
 
 ## acceptInvitation
 
-> acceptInvitation(acceptInvitationDto)
+> AcceptInvitationResponseDto acceptInvitation(acceptInvitationDto)
 
 Accept Invitation
 
@@ -80,7 +100,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**AcceptInvitationResponseDto**](AcceptInvitationResponseDto.md)
 
 ### Authorization
 
@@ -105,7 +125,7 @@ example().catch(console.error);
 
 ## cancelInvitation
 
-> cancelInvitation(cancelInvitationDto)
+> CancelInvitationResponseDto cancelInvitation(cancelInvitationDto)
 
 Cancel Invitation
 
@@ -154,7 +174,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**CancelInvitationResponseDto**](CancelInvitationResponseDto.md)
 
 ### Authorization
 
@@ -177,9 +197,231 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## changeEmail
+
+> ChangeEmailResponseDto changeEmail(changeEmailDto)
+
+Change Email
+
+Change the email address of the current user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ChangeEmailRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // ChangeEmailDto
+    changeEmailDto: ...,
+  } satisfies ChangeEmailRequest;
+
+  try {
+    const data = await api.changeEmail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **changeEmailDto** | [ChangeEmailDto](ChangeEmailDto.md) |  | |
+
+### Return type
+
+[**ChangeEmailResponseDto**](ChangeEmailResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Email change request processed successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## changePassword
+
+> ChangePasswordResponseDto changePassword(changePasswordDto)
+
+Change Password
+
+Change the password of the current user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ChangePasswordRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // ChangePasswordDto
+    changePasswordDto: ...,
+  } satisfies ChangePasswordRequest;
+
+  try {
+    const data = await api.changePassword(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **changePasswordDto** | [ChangePasswordDto](ChangePasswordDto.md) |  | |
+
+### Return type
+
+[**ChangePasswordResponseDto**](ChangePasswordResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password changed successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## checkSlug
+
+> CheckSlugResponseDto checkSlug(checkSlugDto)
+
+Check Slug
+
+Check if organization slug is available
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { CheckSlugRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // CheckSlugDto
+    checkSlugDto: ...,
+  } satisfies CheckSlugRequest;
+
+  try {
+    const data = await api.checkSlug(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **checkSlugDto** | [CheckSlugDto](CheckSlugDto.md) |  | |
+
+### Return type
+
+[**CheckSlugResponseDto**](CheckSlugResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Slug check completed |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## createApiKey
 
-> createApiKey(createApiKeyDto)
+> CreateApiKeyResponseDto createApiKey(createApiKeyDto)
 
 Create API Key
 
@@ -228,7 +470,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**CreateApiKeyResponseDto**](CreateApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -253,7 +495,7 @@ example().catch(console.error);
 
 ## createOrganization
 
-> createOrganization(createOrganizationDto)
+> CreateOrganizationResponseDto createOrganization(createOrganizationDto)
 
 Create Organization
 
@@ -302,7 +544,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**CreateOrganizationResponseDto**](CreateOrganizationResponseDto.md)
 
 ### Authorization
 
@@ -327,7 +569,7 @@ example().catch(console.error);
 
 ## deleteApiKey
 
-> deleteApiKey(deleteApiKeyDto)
+> DeleteApiKeyResponseDto deleteApiKey(deleteApiKeyDto)
 
 Delete API Key
 
@@ -376,7 +618,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**DeleteApiKeyResponseDto**](DeleteApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -401,7 +643,7 @@ example().catch(console.error);
 
 ## deleteOrganization
 
-> deleteOrganization(deleteOrganizationDto)
+> DeleteOrganizationResponseDto deleteOrganization(deleteOrganizationDto)
 
 Delete Organization
 
@@ -450,7 +692,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**DeleteOrganizationResponseDto**](DeleteOrganizationResponseDto.md)
 
 ### Authorization
 
@@ -473,9 +715,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## deleteUser
+
+> DeleteUserResponseDto deleteUser(deleteUserDto)
+
+Delete User
+
+Delete the current user\&#39;s account
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { DeleteUserRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // DeleteUserDto
+    deleteUserDto: ...,
+  } satisfies DeleteUserRequest;
+
+  try {
+    const data = await api.deleteUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deleteUserDto** | [DeleteUserDto](DeleteUserDto.md) |  | |
+
+### Return type
+
+[**DeleteUserResponseDto**](DeleteUserResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User deletion processed successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## forgetPassword
 
-> forgetPassword(forgotPasswordDto)
+> ForgotPasswordResponseDto forgetPassword(forgotPasswordDto)
 
 Forget Password
 
@@ -520,7 +836,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**ForgotPasswordResponseDto**](ForgotPasswordResponseDto.md)
 
 ### Authorization
 
@@ -537,6 +853,298 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Password reset email sent |  -  |
 | **400** | Bad Request - Invalid input |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getActiveMember
+
+> GetActiveMemberResponseDto getActiveMember(organizationId)
+
+Get Active Member
+
+Get the member details of the active organization
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { GetActiveMemberRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | Filter by organization ID (optional)
+    organizationId: org_12345,
+  } satisfies GetActiveMemberRequest;
+
+  try {
+    const data = await api.getActiveMember(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | `string` | Filter by organization ID | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetActiveMemberResponseDto**](GetActiveMemberResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Active member retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getActiveMemberRole
+
+> GetActiveMemberRoleResponseDto getActiveMemberRole(organizationId)
+
+Get Active Member Role
+
+Get the role of the current user in the active organization
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { GetActiveMemberRoleRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | Filter by organization ID (optional)
+    organizationId: org_12345,
+  } satisfies GetActiveMemberRoleRequest;
+
+  try {
+    const data = await api.getActiveMemberRole(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | `string` | Filter by organization ID | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetActiveMemberRoleResponseDto**](GetActiveMemberRoleResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Active member role retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getInvitation
+
+> GetInvitationResponseDto getInvitation(invitationId)
+
+Get Invitation
+
+Get an invitation by ID
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { GetInvitationRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | The ID of the invitation to get
+    invitationId: inv_12345,
+  } satisfies GetInvitationRequest;
+
+  try {
+    const data = await api.getInvitation(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invitationId** | `string` | The ID of the invitation to get | [Defaults to `undefined`] |
+
+### Return type
+
+[**GetInvitationResponseDto**](GetInvitationResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invitation retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getOrganization
+
+> GetFullOrganizationResponseDto getOrganization(organizationId)
+
+Get Full Organization
+
+Get the full organization details
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { GetOrganizationRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | The organization ID to get (optional)
+    organizationId: org_12345,
+  } satisfies GetOrganizationRequest;
+
+  try {
+    const data = await api.getOrganization(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | `string` | The organization ID to get | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**GetFullOrganizationResponseDto**](GetFullOrganizationResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Organization retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
 | **500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -607,9 +1215,83 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## hasPermission
+
+> HasPermissionResponseDto hasPermission(hasPermissionDto)
+
+Has Permission
+
+Check if a user has permission
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { HasPermissionRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // HasPermissionDto
+    hasPermissionDto: ...,
+  } satisfies HasPermissionRequest;
+
+  try {
+    const data = await api.hasPermission(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **hasPermissionDto** | [HasPermissionDto](HasPermissionDto.md) |  | |
+
+### Return type
+
+[**HasPermissionResponseDto**](HasPermissionResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Permission check completed |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## inviteMember
 
-> inviteMember(inviteMemberDto)
+> InviteMemberResponseDto inviteMember(inviteMemberDto)
 
 Invite Member
 
@@ -658,7 +1340,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**InviteMemberResponseDto**](InviteMemberResponseDto.md)
 
 ### Authorization
 
@@ -681,9 +1363,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## leaveOrganization
+
+> LeaveOrganizationResponseDto leaveOrganization(leaveOrganizationDto)
+
+Leave Organization
+
+Leave an organization
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { LeaveOrganizationRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // LeaveOrganizationDto
+    leaveOrganizationDto: ...,
+  } satisfies LeaveOrganizationRequest;
+
+  try {
+    const data = await api.leaveOrganization(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **leaveOrganizationDto** | [LeaveOrganizationDto](LeaveOrganizationDto.md) |  | |
+
+### Return type
+
+[**LeaveOrganizationResponseDto**](LeaveOrganizationResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Left organization successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listApiKeys
 
-> listApiKeys()
+> ListApiKeysResponseDto listApiKeys()
 
 List API Keys
 
@@ -724,7 +1480,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`void` (Empty response body)
+[**ListApiKeysResponseDto**](ListApiKeysResponseDto.md)
 
 ### Authorization
 
@@ -746,9 +1502,155 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listMembers
+
+> ListMembersResponseDto listMembers(organizationId)
+
+List Members
+
+List all members of an organization
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ListMembersRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | Filter by organization ID (optional)
+    organizationId: org_12345,
+  } satisfies ListMembersRequest;
+
+  try {
+    const data = await api.listMembers(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | `string` | Filter by organization ID | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ListMembersResponseDto**](ListMembersResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Members listed successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listOrganizationInvitations
+
+> ListInvitationsResponseDto listOrganizationInvitations(organizationId)
+
+List Invitations
+
+List all invitations a user has received
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ListOrganizationInvitationsRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | Filter by organization ID (optional)
+    organizationId: org_12345,
+  } satisfies ListOrganizationInvitationsRequest;
+
+  try {
+    const data = await api.listOrganizationInvitations(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **organizationId** | `string` | Filter by organization ID | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ListInvitationsResponseDto**](ListInvitationsResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invitations listed successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## listOrganizations
 
-> listOrganizations()
+> ListOrganizationsResponseDto listOrganizations(include)
 
 List Organizations
 
@@ -771,8 +1673,13 @@ async function example() {
   });
   const api = new AuthenticationApi(config);
 
+  const body = {
+    // boolean | Include additional organization data (optional)
+    include: true,
+  } satisfies ListOrganizationsRequest;
+
   try {
-    const data = await api.listOrganizations();
+    const data = await api.listOrganizations(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -785,11 +1692,14 @@ example().catch(console.error);
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **include** | `boolean` | Include additional organization data | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
-`void` (Empty response body)
+[**ListOrganizationsResponseDto**](ListOrganizationsResponseDto.md)
 
 ### Authorization
 
@@ -811,9 +1721,147 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## listUserInvitations
+
+> ListUserInvitationsResponseDto listUserInvitations(status)
+
+List User Invitations
+
+List all invitations a user has received
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ListUserInvitationsRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // string | Filter by status (optional)
+    status: pending,
+  } satisfies ListUserInvitationsRequest;
+
+  try {
+    const data = await api.listUserInvitations(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **status** | `string` | Filter by status | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**ListUserInvitationsResponseDto**](ListUserInvitationsResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User invitations listed successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listUserSessions
+
+> ListSessionsResponseDto listUserSessions()
+
+List User Sessions
+
+List all active sessions for the user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ListUserSessionsRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  try {
+    const data = await api.listUserSessions();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListSessionsResponseDto**](ListSessionsResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Sessions listed successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## rejectInvitation
 
-> rejectInvitation(rejectInvitationDto)
+> RejectInvitationResponseDto rejectInvitation(rejectInvitationDto)
 
 Reject Invitation
 
@@ -862,7 +1910,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**RejectInvitationResponseDto**](RejectInvitationResponseDto.md)
 
 ### Authorization
 
@@ -887,7 +1935,7 @@ example().catch(console.error);
 
 ## removeMember
 
-> removeMember(removeMemberDto)
+> RemoveMemberResponseDto removeMember(removeMemberDto)
 
 Remove Member
 
@@ -936,7 +1984,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**RemoveMemberResponseDto**](RemoveMemberResponseDto.md)
 
 ### Authorization
 
@@ -959,9 +2007,78 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## requestPasswordReset
+
+> RequestPasswordResetResponseDto requestPasswordReset(requestPasswordResetDto)
+
+Request Password Reset
+
+Send a password reset email to the user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { RequestPasswordResetRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const api = new AuthenticationApi();
+
+  const body = {
+    // RequestPasswordResetDto
+    requestPasswordResetDto: ...,
+  } satisfies RequestPasswordResetRequest;
+
+  try {
+    const data = await api.requestPasswordReset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestPasswordResetDto** | [RequestPasswordResetDto](RequestPasswordResetDto.md) |  | |
+
+### Return type
+
+[**RequestPasswordResetResponseDto**](RequestPasswordResetResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password reset email sent successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## resetPassword
 
-> resetPassword(resetPasswordDto)
+> ResetPasswordResponseDto resetPassword(resetPasswordDto)
 
 Reset Password
 
@@ -1006,7 +2123,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**ResetPasswordResponseDto**](ResetPasswordResponseDto.md)
 
 ### Authorization
 
@@ -1028,9 +2145,224 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## resetPasswordCallback
+
+> ResetPasswordCallbackResponseDto resetPasswordCallback(callbackURL, token)
+
+Reset Password Callback
+
+Redirects user to callback URL with token
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { ResetPasswordCallbackRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const api = new AuthenticationApi();
+
+  const body = {
+    // string
+    callbackURL: callbackURL_example,
+    // string
+    token: token_example,
+  } satisfies ResetPasswordCallbackRequest;
+
+  try {
+    const data = await api.resetPasswordCallback(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **callbackURL** | `string` |  | [Defaults to `undefined`] |
+| **token** | `string` |  | [Defaults to `undefined`] |
+
+### Return type
+
+[**ResetPasswordCallbackResponseDto**](ResetPasswordCallbackResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Password reset token validated |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## revokeSession
+
+> RevokeSessionResponseDto revokeSession(revokeSessionDto)
+
+Revoke Session
+
+Revoke a specific session
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { RevokeSessionRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // RevokeSessionDto
+    revokeSessionDto: ...,
+  } satisfies RevokeSessionRequest;
+
+  try {
+    const data = await api.revokeSession(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revokeSessionDto** | [RevokeSessionDto](RevokeSessionDto.md) |  | |
+
+### Return type
+
+[**RevokeSessionResponseDto**](RevokeSessionResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Session revoked successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## sendVerificationEmail
+
+> SendVerificationEmailResponseDto sendVerificationEmail(sendVerificationEmailDto)
+
+Send Verification Email
+
+Send a verification email to the user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { SendVerificationEmailRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const api = new AuthenticationApi();
+
+  const body = {
+    // SendVerificationEmailDto
+    sendVerificationEmailDto: ...,
+  } satisfies SendVerificationEmailRequest;
+
+  try {
+    const data = await api.sendVerificationEmail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sendVerificationEmailDto** | [SendVerificationEmailDto](SendVerificationEmailDto.md) |  | |
+
+### Return type
+
+[**SendVerificationEmailResponseDto**](SendVerificationEmailResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Verification email sent successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## setActiveOrganization
 
-> setActiveOrganization(setActiveOrganizationDto)
+> SetActiveOrganizationResponseDto setActiveOrganization(setActiveOrganizationDto)
 
 Set Active Organization
 
@@ -1079,7 +2411,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**SetActiveOrganizationResponseDto**](SetActiveOrganizationResponseDto.md)
 
 ### Authorization
 
@@ -1104,7 +2436,7 @@ example().catch(console.error);
 
 ## signInEmail
 
-> signInEmail(signInDto)
+> SignInResponseDto signInEmail(signInDto)
 
 Sign in with email
 
@@ -1149,7 +2481,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**SignInResponseDto**](SignInResponseDto.md)
 
 ### Authorization
 
@@ -1173,7 +2505,7 @@ No authorization required
 
 ## signOut
 
-> signOut()
+> SignOutResponseDto signOut()
 
 Sign out
 
@@ -1214,7 +2546,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`void` (Empty response body)
+[**SignOutResponseDto**](SignOutResponseDto.md)
 
 ### Authorization
 
@@ -1238,7 +2570,7 @@ This endpoint does not need any parameter.
 
 ## signUpEmail
 
-> signUpEmail(signUpDto)
+> SignUpResponseDto signUpEmail(signUpDto)
 
 Sign up with email
 
@@ -1283,7 +2615,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**SignUpResponseDto**](SignUpResponseDto.md)
 
 ### Authorization
 
@@ -1307,7 +2639,7 @@ No authorization required
 
 ## updateApiKey
 
-> updateApiKey(updateApiKeyDto)
+> UpdateApiKeyResponseDto updateApiKey(updateApiKeyDto)
 
 Update API Key
 
@@ -1356,7 +2688,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**UpdateApiKeyResponseDto**](UpdateApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -1381,7 +2713,7 @@ example().catch(console.error);
 
 ## updateMemberRole
 
-> updateMemberRole(updateMemberRoleDto)
+> UpdateMemberRoleResponseDto updateMemberRole(updateMemberRoleDto)
 
 Update Member Role
 
@@ -1430,7 +2762,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**UpdateMemberRoleResponseDto**](UpdateMemberRoleResponseDto.md)
 
 ### Authorization
 
@@ -1455,7 +2787,7 @@ example().catch(console.error);
 
 ## updateOrganization
 
-> updateOrganization(updateOrganizationDto)
+> UpdateOrganizationResponseDto updateOrganization(updateOrganizationDto)
 
 Update Organization
 
@@ -1504,7 +2836,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**UpdateOrganizationResponseDto**](UpdateOrganizationResponseDto.md)
 
 ### Authorization
 
@@ -1527,9 +2859,83 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## updateUser
+
+> UpdateUserResponseDto updateUser(updateUserDto)
+
+Update User
+
+Update the current user\&#39;s information
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { UpdateUserRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new AuthenticationApi(config);
+
+  const body = {
+    // UpdateUserDto
+    updateUserDto: ...,
+  } satisfies UpdateUserRequest;
+
+  try {
+    const data = await api.updateUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateUserDto** | [UpdateUserDto](UpdateUserDto.md) |  | |
+
+### Return type
+
+[**UpdateUserResponseDto**](UpdateUserResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User updated successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## verifyApiKey
 
-> verifyApiKey(verifyApiKeyDto)
+> VerifyApiKeyResponseDto verifyApiKey(verifyApiKeyDto)
 
 Verify API Key
 
@@ -1574,7 +2980,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**VerifyApiKeyResponseDto**](VerifyApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -1590,6 +2996,78 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | API key verified successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## verifyEmail
+
+> VerifyEmailResponseDto verifyEmail(token, callbackURL)
+
+Verify Email
+
+Verify the email of a user
+
+### Example
+
+```ts
+import {
+  Configuration,
+  AuthenticationApi,
+} from '@cashful-co/typescript';
+import type { VerifyEmailRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const api = new AuthenticationApi();
+
+  const body = {
+    // string
+    token: token_example,
+    // string (optional)
+    callbackURL: callbackURL_example,
+  } satisfies VerifyEmailRequest;
+
+  try {
+    const data = await api.verifyEmail(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **token** | `string` |  | [Defaults to `undefined`] |
+| **callbackURL** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**VerifyEmailResponseDto**](VerifyEmailResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Email verified successfully |  -  |
 | **400** | Bad Request - Invalid input |  -  |
 | **500** | Internal server error |  -  |
 
