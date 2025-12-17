@@ -5,8 +5,8 @@ All URIs are relative to *http://localhost:3000*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createCheckoutSession**](CheckoutsApi.md#createcheckoutsession) | **POST** /api/canary/checkout/sessions | Create Hosted Checkout |
-| [**listAllCheckoutSessionsInternal**](CheckoutsApi.md#listallcheckoutsessionsinternal) | **GET** /api/canary/checkout/sessions | List All Checkout Sessions |
-| [**retrieveCheckoutSessionInternal**](CheckoutsApi.md#retrievecheckoutsessioninternal) | **GET** /api/canary/checkout/sessions/{id} | Retrieve Checkout Session |
+| [**listCheckoutSessions**](CheckoutsApi.md#listcheckoutsessions) | **GET** /api/canary/checkout/sessions | List Checkout Sessions |
+| [**retrieveCheckoutSession**](CheckoutsApi.md#retrievecheckoutsession) | **GET** /api/canary/checkout/sessions/{id} | Retrieve Checkout Session |
 
 
 
@@ -84,13 +84,13 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## listAllCheckoutSessionsInternal
+## listCheckoutSessions
 
-> Array&lt;CheckoutSessionResponseDto&gt; listAllCheckoutSessionsInternal(merchantId, limit, offset)
+> Array&lt;CheckoutSessionResponseDto&gt; listCheckoutSessions(merchantId, limit, offset)
 
-List All Checkout Sessions
+List Checkout Sessions
 
-Lists all checkout sessions across all merchants (internal use only)
+Lists checkout sessions
 
 ### Example
 
@@ -99,7 +99,7 @@ import {
   Configuration,
   CheckoutsApi,
 } from '@cashful-co/typescript';
-import type { ListAllCheckoutSessionsInternalRequest } from '@cashful-co/typescript';
+import type { ListCheckoutSessionsRequest } from '@cashful-co/typescript';
 
 async function example() {
   console.log("🚀 Testing @cashful-co/typescript SDK...");
@@ -116,10 +116,10 @@ async function example() {
     limit: 8.14,
     // number | Number of records to skip (optional)
     offset: 8.14,
-  } satisfies ListAllCheckoutSessionsInternalRequest;
+  } satisfies ListCheckoutSessionsRequest;
 
   try {
-    const data = await api.listAllCheckoutSessionsInternal(body);
+    const data = await api.listCheckoutSessions(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -165,9 +165,9 @@ example().catch(console.error);
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## retrieveCheckoutSessionInternal
+## retrieveCheckoutSession
 
-> CheckoutSessionResponseDto retrieveCheckoutSessionInternal(id)
+> CheckoutSessionResponseDto retrieveCheckoutSession(id)
 
 Retrieve Checkout Session
 
@@ -180,7 +180,7 @@ import {
   Configuration,
   CheckoutsApi,
 } from '@cashful-co/typescript';
-import type { RetrieveCheckoutSessionInternalRequest } from '@cashful-co/typescript';
+import type { RetrieveCheckoutSessionRequest } from '@cashful-co/typescript';
 
 async function example() {
   console.log("🚀 Testing @cashful-co/typescript SDK...");
@@ -193,10 +193,10 @@ async function example() {
   const body = {
     // string | The unique identifier of the checkout session
     id: id_example,
-  } satisfies RetrieveCheckoutSessionInternalRequest;
+  } satisfies RetrieveCheckoutSessionRequest;
 
   try {
-    const data = await api.retrieveCheckoutSessionInternal(body);
+    const data = await api.retrieveCheckoutSession(body);
     console.log(data);
   } catch (error) {
     console.error(error);

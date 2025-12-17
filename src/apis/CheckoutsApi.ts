@@ -32,13 +32,13 @@ export interface CreateCheckoutSessionRequest {
     createCheckoutSessionDto: CreateCheckoutSessionDto;
 }
 
-export interface ListAllCheckoutSessionsInternalRequest {
+export interface ListCheckoutSessionsRequest {
     merchantId: string;
     limit?: number;
     offset?: number;
 }
 
-export interface RetrieveCheckoutSessionInternalRequest {
+export interface RetrieveCheckoutSessionRequest {
     id: string;
 }
 
@@ -97,14 +97,14 @@ export class CheckoutsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Lists all checkout sessions across all merchants (internal use only)
-     * List All Checkout Sessions
+     * Lists checkout sessions
+     * List Checkout Sessions
      */
-    async listAllCheckoutSessionsInternalRaw(requestParameters: ListAllCheckoutSessionsInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CheckoutSessionResponseDto>>> {
+    async listCheckoutSessionsRaw(requestParameters: ListCheckoutSessionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CheckoutSessionResponseDto>>> {
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
-                'Required parameter "merchantId" was null or undefined when calling listAllCheckoutSessionsInternal().'
+                'Required parameter "merchantId" was null or undefined when calling listCheckoutSessions().'
             );
         }
 
@@ -146,11 +146,11 @@ export class CheckoutsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Lists all checkout sessions across all merchants (internal use only)
-     * List All Checkout Sessions
+     * Lists checkout sessions
+     * List Checkout Sessions
      */
-    async listAllCheckoutSessionsInternal(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CheckoutSessionResponseDto>> {
-        const response = await this.listAllCheckoutSessionsInternalRaw({ merchantId: merchantId, limit: limit, offset: offset }, initOverrides);
+    async listCheckoutSessions(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CheckoutSessionResponseDto>> {
+        const response = await this.listCheckoutSessionsRaw({ merchantId: merchantId, limit: limit, offset: offset }, initOverrides);
         return await response.value();
     }
 
@@ -158,11 +158,11 @@ export class CheckoutsApi extends runtime.BaseAPI {
      * Retrieves details of a specific checkout session
      * Retrieve Checkout Session
      */
-    async retrieveCheckoutSessionInternalRaw(requestParameters: RetrieveCheckoutSessionInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckoutSessionResponseDto>> {
+    async retrieveCheckoutSessionRaw(requestParameters: RetrieveCheckoutSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckoutSessionResponseDto>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling retrieveCheckoutSessionInternal().'
+                'Required parameter "id" was null or undefined when calling retrieveCheckoutSession().'
             );
         }
 
@@ -196,8 +196,8 @@ export class CheckoutsApi extends runtime.BaseAPI {
      * Retrieves details of a specific checkout session
      * Retrieve Checkout Session
      */
-    async retrieveCheckoutSessionInternal(id: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CheckoutSessionResponseDto> {
-        const response = await this.retrieveCheckoutSessionInternalRaw({ id: id }, initOverrides);
+    async retrieveCheckoutSession(id: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CheckoutSessionResponseDto> {
+        const response = await this.retrieveCheckoutSessionRaw({ id: id }, initOverrides);
         return await response.value();
     }
 
