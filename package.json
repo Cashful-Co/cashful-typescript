@@ -1,6 +1,6 @@
 {
   "name": "@cashful-co/typescript",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "OpenAPI client for @cashful-co/typescript",
   "author": "OpenAPI-Generator",
   "repository": {

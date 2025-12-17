@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listPaymentMethods
 
-> Array&lt;PaymentMethodResponseDto&gt; listPaymentMethods()
+> Array&lt;PaymentMethodResponseDto&gt; listPaymentMethods(merchantId, customerId, limit, offset)
 
 List Payment Methods
 
@@ -109,8 +109,19 @@ async function example() {
   });
   const api = new PaymentMethodsApi(config);
 
+  const body = {
+    // string | The unique identifier of the merchant
+    merchantId: merchantId_example,
+    // string | The unique identifier of the customer (optional)
+    customerId: customerId_example,
+    // number | Maximum number of records to return (optional)
+    limit: 8.14,
+    // number | Number of records to skip (optional)
+    offset: 8.14,
+  } satisfies ListPaymentMethodsRequest;
+
   try {
-    const data = await api.listPaymentMethods();
+    const data = await api.listPaymentMethods(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -123,7 +134,13 @@ example().catch(console.error);
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **merchantId** | `string` | The unique identifier of the merchant | [Defaults to `undefined`] |
+| **customerId** | `string` | The unique identifier of the customer | [Optional] [Defaults to `undefined`] |
+| **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
+| **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
