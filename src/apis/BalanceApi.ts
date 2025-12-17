@@ -38,7 +38,7 @@ export interface GetBalanceHistoryRequest {
 }
 
 export interface GetMerchantBalanceRequest {
-    merchantId: any;
+    merchantId: string;
 }
 
 /**
@@ -161,7 +161,7 @@ export class BalanceApi extends runtime.BaseAPI {
      * Retrieves the merchant\'s own master balance (their earnings) available for payouts.
      * Get Merchant Balance
      */
-    async getMerchantBalance(merchantId: any, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MerchantBalanceResponseDto> {
+    async getMerchantBalance(merchantId: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MerchantBalanceResponseDto> {
         const response = await this.getMerchantBalanceRaw({ merchantId: merchantId }, initOverrides);
         return await response.value();
     }

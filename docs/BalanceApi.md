@@ -125,7 +125,7 @@ async function example() {
   const api = new BalanceApi(config);
 
   const body = {
-    // any | The unique identifier of the merchant
+    // string | The unique identifier of the merchant
     merchantId: merchant_123,
   } satisfies GetMerchantBalanceRequest;
 
@@ -146,7 +146,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | `any` | The unique identifier of the merchant | [Defaults to `undefined`] |
+| **merchantId** | `string` | The unique identifier of the merchant | [Defaults to `undefined`] |
 
 ### Return type
 
