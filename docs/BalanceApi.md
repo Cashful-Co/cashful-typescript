@@ -101,7 +101,7 @@ example().catch(console.error);
 
 ## getMerchantBalance
 
-> MerchantBalanceResponseDto getMerchantBalance()
+> MerchantBalanceResponseDto getMerchantBalance(merchantId)
 
 Get Merchant Balance
 
@@ -124,8 +124,13 @@ async function example() {
   });
   const api = new BalanceApi(config);
 
+  const body = {
+    // any | The unique identifier of the merchant
+    merchantId: merchant_123,
+  } satisfies GetMerchantBalanceRequest;
+
   try {
-    const data = await api.getMerchantBalance();
+    const data = await api.getMerchantBalance(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -138,7 +143,10 @@ example().catch(console.error);
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **merchantId** | `any` | The unique identifier of the merchant | [Defaults to `undefined`] |
 
 ### Return type
 

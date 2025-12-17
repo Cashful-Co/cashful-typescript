@@ -32,6 +32,16 @@ export interface CreateCheckoutSessionRequest {
     createCheckoutSessionDto: CreateCheckoutSessionDto;
 }
 
+export interface ListAllCheckoutSessionsInternalRequest {
+    merchantId: string;
+    limit?: number;
+    offset?: number;
+}
+
+export interface RetrieveCheckoutSessionInternalRequest {
+    id: string;
+}
+
 /**
  * 
  */
@@ -83,6 +93,111 @@ export class CheckoutsApi extends runtime.BaseAPI {
      */
     async createCheckoutSession(createCheckoutSessionDto: CreateCheckoutSessionDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CheckoutSessionResponseDto> {
         const response = await this.createCheckoutSessionRaw({ createCheckoutSessionDto: createCheckoutSessionDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Lists all checkout sessions across all merchants (internal use only)
+     * List All Checkout Sessions
+     */
+    async listAllCheckoutSessionsInternalRaw(requestParameters: ListAllCheckoutSessionsInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CheckoutSessionResponseDto>>> {
+        if (requestParameters['merchantId'] == null) {
+            throw new runtime.RequiredError(
+                'merchantId',
+                'Required parameter "merchantId" was null or undefined when calling listAllCheckoutSessionsInternal().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/checkout/sessions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CheckoutSessionResponseDtoFromJSON));
+    }
+
+    /**
+     * Lists all checkout sessions across all merchants (internal use only)
+     * List All Checkout Sessions
+     */
+    async listAllCheckoutSessionsInternal(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CheckoutSessionResponseDto>> {
+        const response = await this.listAllCheckoutSessionsInternalRaw({ merchantId: merchantId, limit: limit, offset: offset }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieves details of a specific checkout session
+     * Retrieve Checkout Session
+     */
+    async retrieveCheckoutSessionInternalRaw(requestParameters: RetrieveCheckoutSessionInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckoutSessionResponseDto>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling retrieveCheckoutSessionInternal().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/checkout/sessions/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CheckoutSessionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieves details of a specific checkout session
+     * Retrieve Checkout Session
+     */
+    async retrieveCheckoutSessionInternal(id: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CheckoutSessionResponseDto> {
+        const response = await this.retrieveCheckoutSessionInternalRaw({ id: id }, initOverrides);
         return await response.value();
     }
 

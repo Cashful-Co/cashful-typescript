@@ -37,6 +37,10 @@ export interface GetBalanceHistoryRequest {
     offset?: number;
 }
 
+export interface GetMerchantBalanceRequest {
+    merchantId: any;
+}
+
 /**
  * 
  */
@@ -116,8 +120,19 @@ export class BalanceApi extends runtime.BaseAPI {
      * Retrieves the merchant\'s own master balance (their earnings) available for payouts.
      * Get Merchant Balance
      */
-    async getMerchantBalanceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MerchantBalanceResponseDto>> {
+    async getMerchantBalanceRaw(requestParameters: GetMerchantBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MerchantBalanceResponseDto>> {
+        if (requestParameters['merchantId'] == null) {
+            throw new runtime.RequiredError(
+                'merchantId',
+                'Required parameter "merchantId" was null or undefined when calling getMerchantBalance().'
+            );
+        }
+
         const queryParameters: any = {};
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -146,8 +161,8 @@ export class BalanceApi extends runtime.BaseAPI {
      * Retrieves the merchant\'s own master balance (their earnings) available for payouts.
      * Get Merchant Balance
      */
-    async getMerchantBalance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MerchantBalanceResponseDto> {
-        const response = await this.getMerchantBalanceRaw(initOverrides);
+    async getMerchantBalance(merchantId: any, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MerchantBalanceResponseDto> {
+        const response = await this.getMerchantBalanceRaw({ merchantId: merchantId }, initOverrides);
         return await response.value();
     }
 
