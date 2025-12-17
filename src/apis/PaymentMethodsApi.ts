@@ -90,6 +90,45 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Lists saved payment methods for a specific customer.
+     * List Payment Methods
+     */
+    async listPaymentMethodsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PaymentMethodResponseDto>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/payment-methods`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PaymentMethodResponseDtoFromJSON));
+    }
+
+    /**
+     * Lists saved payment methods for a specific customer.
+     * List Payment Methods
+     */
+    async listPaymentMethods(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PaymentMethodResponseDto>> {
+        const response = await this.listPaymentMethodsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Gets the non-sensitive details of a saved card (e.g., brand, last 4).
      * Retrieve Payment Method
      */

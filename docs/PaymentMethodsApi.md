@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:3000*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**deletePaymentMethod**](PaymentMethodsApi.md#deletepaymentmethod) | **DELETE** /api/canary/payment-methods/{id} | Delete Payment Method |
+| [**listPaymentMethods**](PaymentMethodsApi.md#listpaymentmethods) | **GET** /api/canary/payment-methods | List Payment Methods |
 | [**retrievePaymentMethod**](PaymentMethodsApi.md#retrievepaymentmethod) | **GET** /api/canary/payment-methods/{id} | Retrieve Payment Method |
 
 
@@ -78,6 +79,71 @@ example().catch(console.error);
 | **200** | Payment method successfully deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## listPaymentMethods
+
+> Array&lt;PaymentMethodResponseDto&gt; listPaymentMethods()
+
+List Payment Methods
+
+Lists saved payment methods for a specific customer.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  PaymentMethodsApi,
+} from '@cashful-co/typescript';
+import type { ListPaymentMethodsRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new PaymentMethodsApi(config);
+
+  try {
+    const data = await api.listPaymentMethods();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PaymentMethodResponseDto&gt;**](PaymentMethodResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved payment methods list |  -  |
+| **401** | Unauthorized |  -  |
 | **500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
