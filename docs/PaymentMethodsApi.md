@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listPaymentMethods
 
-> Array&lt;PaymentMethodResponseDto&gt; listPaymentMethods(merchantId, customerId, limit, offset)
+> ListPaymentMethodsResponseDto listPaymentMethods(merchantId, customerId, limit, offset)
 
 List Payment Methods
 
@@ -144,7 +144,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**Array&lt;PaymentMethodResponseDto&gt;**](PaymentMethodResponseDto.md)
+[**ListPaymentMethodsResponseDto**](ListPaymentMethodsResponseDto.md)
 
 ### Authorization
 

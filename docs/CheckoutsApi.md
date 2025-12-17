@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listCheckoutSessions
 
-> Array&lt;CheckoutSessionResponseDto&gt; listCheckoutSessions(merchantId, limit, offset)
+> ListCheckoutSessionsResponseDto listCheckoutSessions(merchantId, limit, offset)
 
 List Checkout Sessions
 
@@ -141,7 +141,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**Array&lt;CheckoutSessionResponseDto&gt;**](CheckoutSessionResponseDto.md)
+[**ListCheckoutSessionsResponseDto**](ListCheckoutSessionsResponseDto.md)
 
 ### Authorization
 

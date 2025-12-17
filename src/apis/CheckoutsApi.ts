@@ -18,6 +18,7 @@ import type {
   CheckoutSessionResponseDto,
   CreateCheckoutSessionDto,
   ErrorResponseDto,
+  ListCheckoutSessionsResponseDto,
 } from '../models/index';
 import {
     CheckoutSessionResponseDtoFromJSON,
@@ -26,6 +27,8 @@ import {
     CreateCheckoutSessionDtoToJSON,
     ErrorResponseDtoFromJSON,
     ErrorResponseDtoToJSON,
+    ListCheckoutSessionsResponseDtoFromJSON,
+    ListCheckoutSessionsResponseDtoToJSON,
 } from '../models/index';
 
 export interface CreateCheckoutSessionRequest {
@@ -100,7 +103,7 @@ export class CheckoutsApi extends runtime.BaseAPI {
      * Lists checkout sessions
      * List Checkout Sessions
      */
-    async listCheckoutSessionsRaw(requestParameters: ListCheckoutSessionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CheckoutSessionResponseDto>>> {
+    async listCheckoutSessionsRaw(requestParameters: ListCheckoutSessionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListCheckoutSessionsResponseDto>> {
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
@@ -142,14 +145,14 @@ export class CheckoutsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CheckoutSessionResponseDtoFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListCheckoutSessionsResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Lists checkout sessions
      * List Checkout Sessions
      */
-    async listCheckoutSessions(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CheckoutSessionResponseDto>> {
+    async listCheckoutSessions(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListCheckoutSessionsResponseDto> {
         const response = await this.listCheckoutSessionsRaw({ merchantId: merchantId, limit: limit, offset: offset }, initOverrides);
         return await response.value();
     }

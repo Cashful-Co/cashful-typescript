@@ -16,11 +16,14 @@
 import * as runtime from '../runtime';
 import type {
   ErrorResponseDto,
+  ListPaymentMethodsResponseDto,
   PaymentMethodResponseDto,
 } from '../models/index';
 import {
     ErrorResponseDtoFromJSON,
     ErrorResponseDtoToJSON,
+    ListPaymentMethodsResponseDtoFromJSON,
+    ListPaymentMethodsResponseDtoToJSON,
     PaymentMethodResponseDtoFromJSON,
     PaymentMethodResponseDtoToJSON,
 } from '../models/index';
@@ -100,7 +103,7 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
      * Lists saved payment methods for a specific customer.
      * List Payment Methods
      */
-    async listPaymentMethodsRaw(requestParameters: ListPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PaymentMethodResponseDto>>> {
+    async listPaymentMethodsRaw(requestParameters: ListPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPaymentMethodsResponseDto>> {
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
@@ -146,14 +149,14 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PaymentMethodResponseDtoFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListPaymentMethodsResponseDtoFromJSON(jsonValue));
     }
 
     /**
      * Lists saved payment methods for a specific customer.
      * List Payment Methods
      */
-    async listPaymentMethods(merchantId: string, customerId?: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PaymentMethodResponseDto>> {
+    async listPaymentMethods(merchantId: string, customerId?: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPaymentMethodsResponseDto> {
         const response = await this.listPaymentMethodsRaw({ merchantId: merchantId, customerId: customerId, limit: limit, offset: offset }, initOverrides);
         return await response.value();
     }
