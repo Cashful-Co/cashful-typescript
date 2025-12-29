@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listPaymentLinks
 
-> ListPaymentLinksResponseDto listPaymentLinks(merchantId, active, limit, offset)
+> ListPaymentLinksResponseDto listPaymentLinks(merchantId, limit, offset, active)
 
 List Payment Links
 
@@ -112,12 +112,12 @@ async function example() {
   const body = {
     // string | The ID of the merchant. This parameter is required.
     merchantId: merchantId_example,
-    // boolean | Filter by active status (optional)
-    active: true,
     // number | Maximum number of records to return (optional)
     limit: 8.14,
     // number | Number of records to skip (optional)
     offset: 8.14,
+    // boolean | Filter by active status (optional)
+    active: true,
   } satisfies ListPaymentLinksRequest;
 
   try {
@@ -138,9 +138,9 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | `string` | The ID of the merchant. This parameter is required. | [Defaults to `undefined`] |
-| **active** | `boolean` | Filter by active status | [Optional] [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **active** | `boolean` | Filter by active status | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

@@ -33,10 +33,12 @@ export interface DeletePaymentMethodRequest {
 }
 
 export interface ListPaymentMethodsRequest {
+    total: number;
+    hasMore: boolean;
     merchantId: string;
-    customerId?: string;
     limit?: number;
     offset?: number;
+    customerId?: string;
 }
 
 export interface RetrievePaymentMethodRequest {
@@ -104,6 +106,20 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
      * List Payment Methods
      */
     async listPaymentMethodsRaw(requestParameters: ListPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPaymentMethodsResponseDto>> {
+        if (requestParameters['total'] == null) {
+            throw new runtime.RequiredError(
+                'total',
+                'Required parameter "total" was null or undefined when calling listPaymentMethods().'
+            );
+        }
+
+        if (requestParameters['hasMore'] == null) {
+            throw new runtime.RequiredError(
+                'hasMore',
+                'Required parameter "hasMore" was null or undefined when calling listPaymentMethods().'
+            );
+        }
+
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
@@ -113,20 +129,28 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['customerId'] != null) {
-            queryParameters['customerId'] = requestParameters['customerId'];
-        }
-
-        if (requestParameters['merchantId'] != null) {
-            queryParameters['merchantId'] = requestParameters['merchantId'];
-        }
-
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['total'] != null) {
+            queryParameters['total'] = requestParameters['total'];
+        }
+
+        if (requestParameters['hasMore'] != null) {
+            queryParameters['hasMore'] = requestParameters['hasMore'];
+        }
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
+
+        if (requestParameters['customerId'] != null) {
+            queryParameters['customerId'] = requestParameters['customerId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -156,8 +180,8 @@ export class PaymentMethodsApi extends runtime.BaseAPI {
      * Lists saved payment methods for a specific customer.
      * List Payment Methods
      */
-    async listPaymentMethods(merchantId: string, customerId?: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPaymentMethodsResponseDto> {
-        const response = await this.listPaymentMethodsRaw({ merchantId: merchantId, customerId: customerId, limit: limit, offset: offset }, initOverrides);
+    async listPaymentMethods(total: number, hasMore: boolean, merchantId: string, limit?: number, offset?: number, customerId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPaymentMethodsResponseDto> {
+        const response = await this.listPaymentMethodsRaw({ total: total, hasMore: hasMore, merchantId: merchantId, limit: limit, offset: offset, customerId: customerId }, initOverrides);
         return await response.value();
     }
 

@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost:3000*
 
 ## listEvents
 
-> ListEventsResponseDto listEvents(merchantId, endDate, startDate, type, limit, offset)
+> ListEventsResponseDto listEvents(merchantId, limit, offset, type, startDate, endDate)
 
 List Events
 
@@ -36,16 +36,16 @@ async function example() {
   const body = {
     // string | The ID of the merchant. This parameter is required.
     merchantId: merchantId_example,
-    // any | Filter by end date (optional)
-    endDate: ...,
-    // any | Filter by start date (optional)
-    startDate: ...,
-    // any | Filter by event type (optional)
-    type: ...,
     // number | Maximum number of records to return (optional)
     limit: 8.14,
     // number | Number of records to skip (optional)
     offset: 8.14,
+    // string | Filter by event type (optional)
+    type: type_example,
+    // string | Filter by start date (optional)
+    startDate: startDate_example,
+    // string | Filter by end date (optional)
+    endDate: endDate_example,
   } satisfies ListEventsRequest;
 
   try {
@@ -66,11 +66,11 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | `string` | The ID of the merchant. This parameter is required. | [Defaults to `undefined`] |
-| **endDate** | `any` | Filter by end date | [Optional] [Defaults to `undefined`] |
-| **startDate** | `any` | Filter by start date | [Optional] [Defaults to `undefined`] |
-| **type** | `any` | Filter by event type | [Optional] [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **type** | `string` | Filter by event type | [Optional] [Defaults to `undefined`] |
+| **startDate** | `string` | Filter by start date | [Optional] [Defaults to `undefined`] |
+| **endDate** | `string` | Filter by end date | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

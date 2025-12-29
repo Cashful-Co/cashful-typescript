@@ -48,7 +48,7 @@ export interface CustomerTransactionDto {
      * @type {string}
      * @memberof CustomerTransactionDto
      */
-    customerId: string;
+    customerId?: string;
     /**
      * 
      * @type {string}
@@ -78,7 +78,7 @@ export interface CustomerTransactionDto {
      * @type {string}
      * @memberof CustomerTransactionDto
      */
-    description: string;
+    description?: string;
     /**
      * 
      * @type {string}
@@ -96,7 +96,7 @@ export interface CustomerTransactionDto {
      * @type {number}
      * @memberof CustomerTransactionDto
      */
-    balanceAfter: number;
+    balanceAfter?: number;
 }
 
 /**
@@ -106,12 +106,9 @@ export function instanceOfCustomerTransactionDto(value: object): value is Custom
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
-    if (!('customerId' in value) || value['customerId'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
-    if (!('description' in value) || value['description'] === undefined) return false;
-    if (!('balanceAfter' in value) || value['balanceAfter'] === undefined) return false;
     return true;
 }
 
@@ -129,15 +126,15 @@ export function CustomerTransactionDtoFromJSONTyped(json: any, ignoreDiscriminat
         'createdAt': (new Date(json['createdAt'])),
         'updatedAt': (new Date(json['updatedAt'])),
         'deletedAt': json['deletedAt'] == null ? undefined : (new Date(json['deletedAt'])),
-        'customerId': json['customerId'],
+        'customerId': json['customerId'] == null ? undefined : json['customerId'],
         'merchantId': json['merchantId'] == null ? undefined : json['merchantId'],
         'type': json['type'],
         'amount': json['amount'],
         'currency': json['currency'],
-        'description': json['description'],
+        'description': json['description'] == null ? undefined : json['description'],
         'relatedEntityId': json['relatedEntityId'] == null ? undefined : json['relatedEntityId'],
         'relatedEntityType': json['relatedEntityType'] == null ? undefined : json['relatedEntityType'],
-        'balanceAfter': json['balanceAfter'],
+        'balanceAfter': json['balanceAfter'] == null ? undefined : json['balanceAfter'],
     };
 }
 

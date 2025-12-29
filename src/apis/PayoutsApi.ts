@@ -37,9 +37,9 @@ export interface CreatePayoutRequest {
 
 export interface ListPayoutsRequest {
     merchantId: string;
-    status?: any;
     limit?: number;
     offset?: number;
+    status?: string;
 }
 
 /**
@@ -110,10 +110,6 @@ export class PayoutsApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['status'] != null) {
-            queryParameters['status'] = requestParameters['status'];
-        }
-
         if (requestParameters['merchantId'] != null) {
             queryParameters['merchantId'] = requestParameters['merchantId'];
         }
@@ -124,6 +120,10 @@ export class PayoutsApi extends runtime.BaseAPI {
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -153,8 +153,8 @@ export class PayoutsApi extends runtime.BaseAPI {
      * Retrieves a list of all historical and pending payouts for the merchant.
      * List Payouts
      */
-    async listPayouts(merchantId: string, status?: any, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPayoutsResponseDto> {
-        const response = await this.listPayoutsRaw({ merchantId: merchantId, status: status, limit: limit, offset: offset }, initOverrides);
+    async listPayouts(merchantId: string, limit?: number, offset?: number, status?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPayoutsResponseDto> {
+        const response = await this.listPayoutsRaw({ merchantId: merchantId, limit: limit, offset: offset, status: status }, initOverrides);
         return await response.value();
     }
 

@@ -40,9 +40,9 @@ export interface CreatePaymentLinkRequest {
 
 export interface ListPaymentLinksRequest {
     merchantId: string;
-    active?: boolean;
     limit?: number;
     offset?: number;
+    active?: boolean;
 }
 
 export interface UpdatePaymentLinkRequest {
@@ -118,10 +118,6 @@ export class PaymentLinksApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['active'] != null) {
-            queryParameters['active'] = requestParameters['active'];
-        }
-
         if (requestParameters['merchantId'] != null) {
             queryParameters['merchantId'] = requestParameters['merchantId'];
         }
@@ -132,6 +128,10 @@ export class PaymentLinksApi extends runtime.BaseAPI {
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['active'] != null) {
+            queryParameters['active'] = requestParameters['active'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -161,8 +161,8 @@ export class PaymentLinksApi extends runtime.BaseAPI {
      * Retrieves all payment links created by the merchant.
      * List Payment Links
      */
-    async listPaymentLinks(merchantId: string, active?: boolean, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPaymentLinksResponseDto> {
-        const response = await this.listPaymentLinksRaw({ merchantId: merchantId, active: active, limit: limit, offset: offset }, initOverrides);
+    async listPaymentLinks(merchantId: string, limit?: number, offset?: number, active?: boolean, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPaymentLinksResponseDto> {
+        const response = await this.listPaymentLinksRaw({ merchantId: merchantId, limit: limit, offset: offset, active: active }, initOverrides);
         return await response.value();
     }
 

@@ -36,9 +36,12 @@ export interface CreateCheckoutSessionRequest {
 }
 
 export interface ListCheckoutSessionsRequest {
+    total: number;
+    hasMore: boolean;
     merchantId: string;
     limit?: number;
     offset?: number;
+    status?: string;
 }
 
 export interface RetrieveCheckoutSessionRequest {
@@ -104,6 +107,20 @@ export class CheckoutsApi extends runtime.BaseAPI {
      * List Checkout Sessions
      */
     async listCheckoutSessionsRaw(requestParameters: ListCheckoutSessionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListCheckoutSessionsResponseDto>> {
+        if (requestParameters['total'] == null) {
+            throw new runtime.RequiredError(
+                'total',
+                'Required parameter "total" was null or undefined when calling listCheckoutSessions().'
+            );
+        }
+
+        if (requestParameters['hasMore'] == null) {
+            throw new runtime.RequiredError(
+                'hasMore',
+                'Required parameter "hasMore" was null or undefined when calling listCheckoutSessions().'
+            );
+        }
+
         if (requestParameters['merchantId'] == null) {
             throw new runtime.RequiredError(
                 'merchantId',
@@ -113,16 +130,28 @@ export class CheckoutsApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['merchantId'] != null) {
-            queryParameters['merchantId'] = requestParameters['merchantId'];
-        }
-
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['total'] != null) {
+            queryParameters['total'] = requestParameters['total'];
+        }
+
+        if (requestParameters['hasMore'] != null) {
+            queryParameters['hasMore'] = requestParameters['hasMore'];
+        }
+
+        if (requestParameters['merchantId'] != null) {
+            queryParameters['merchantId'] = requestParameters['merchantId'];
+        }
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -152,8 +181,8 @@ export class CheckoutsApi extends runtime.BaseAPI {
      * Lists checkout sessions
      * List Checkout Sessions
      */
-    async listCheckoutSessions(merchantId: string, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListCheckoutSessionsResponseDto> {
-        const response = await this.listCheckoutSessionsRaw({ merchantId: merchantId, limit: limit, offset: offset }, initOverrides);
+    async listCheckoutSessions(total: number, hasMore: boolean, merchantId: string, limit?: number, offset?: number, status?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListCheckoutSessionsResponseDto> {
+        const response = await this.listCheckoutSessionsRaw({ total: total, hasMore: hasMore, merchantId: merchantId, limit: limit, offset: offset, status: status }, initOverrides);
         return await response.value();
     }
 

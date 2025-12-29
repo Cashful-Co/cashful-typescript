@@ -30,11 +30,11 @@ import {
 
 export interface GetBalanceHistoryRequest {
     merchantId: string;
-    transactionType?: any;
-    endDate?: any;
-    startDate?: any;
     limit?: number;
     offset?: number;
+    startDate?: string;
+    endDate?: string;
+    transactionType?: string;
 }
 
 export interface GetMerchantBalanceRequest {
@@ -60,18 +60,6 @@ export class BalanceApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['transactionType'] != null) {
-            queryParameters['transactionType'] = requestParameters['transactionType'];
-        }
-
-        if (requestParameters['endDate'] != null) {
-            queryParameters['endDate'] = requestParameters['endDate'];
-        }
-
-        if (requestParameters['startDate'] != null) {
-            queryParameters['startDate'] = requestParameters['startDate'];
-        }
-
         if (requestParameters['merchantId'] != null) {
             queryParameters['merchantId'] = requestParameters['merchantId'];
         }
@@ -82,6 +70,18 @@ export class BalanceApi extends runtime.BaseAPI {
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['startDate'] != null) {
+            queryParameters['startDate'] = requestParameters['startDate'];
+        }
+
+        if (requestParameters['endDate'] != null) {
+            queryParameters['endDate'] = requestParameters['endDate'];
+        }
+
+        if (requestParameters['transactionType'] != null) {
+            queryParameters['transactionType'] = requestParameters['transactionType'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -111,8 +111,8 @@ export class BalanceApi extends runtime.BaseAPI {
      * A full ledger of all transactions, fees, and payouts for the merchant\'s master account.
      * List Merchant Balance History
      */
-    async getBalanceHistory(merchantId: string, transactionType?: any, endDate?: any, startDate?: any, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BalanceHistoryResponseDto> {
-        const response = await this.getBalanceHistoryRaw({ merchantId: merchantId, transactionType: transactionType, endDate: endDate, startDate: startDate, limit: limit, offset: offset }, initOverrides);
+    async getBalanceHistory(merchantId: string, limit?: number, offset?: number, startDate?: string, endDate?: string, transactionType?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BalanceHistoryResponseDto> {
+        const response = await this.getBalanceHistoryRaw({ merchantId: merchantId, limit: limit, offset: offset, startDate: startDate, endDate: endDate, transactionType: transactionType }, initOverrides);
         return await response.value();
     }
 

@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listPaymentMethods
 
-> ListPaymentMethodsResponseDto listPaymentMethods(merchantId, customerId, limit, offset)
+> ListPaymentMethodsResponseDto listPaymentMethods(total, hasMore, merchantId, limit, offset, customerId)
 
 List Payment Methods
 
@@ -110,14 +110,18 @@ async function example() {
   const api = new PaymentMethodsApi(config);
 
   const body = {
+    // number | Total number of items available
+    total: 150,
+    // boolean | Whether there are more items available beyond this response
+    hasMore: true,
     // string | The unique identifier of the merchant
     merchantId: merchantId_example,
+    // number | Maximum number of records to return (optional)
+    limit: 50,
+    // number | Number of records to skip (optional)
+    offset: 0,
     // string | The unique identifier of the customer (optional)
     customerId: customerId_example,
-    // number | Maximum number of records to return (optional)
-    limit: 8.14,
-    // number | Number of records to skip (optional)
-    offset: 8.14,
   } satisfies ListPaymentMethodsRequest;
 
   try {
@@ -137,10 +141,12 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **total** | `number` | Total number of items available | [Defaults to `undefined`] |
+| **hasMore** | `boolean` | Whether there are more items available beyond this response | [Defaults to `undefined`] |
 | **merchantId** | `string` | The unique identifier of the merchant | [Defaults to `undefined`] |
-| **customerId** | `string` | The unique identifier of the customer | [Optional] [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **customerId** | `string` | The unique identifier of the customer | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

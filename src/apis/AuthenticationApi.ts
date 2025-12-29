@@ -38,8 +38,11 @@ import type {
   ErrorResponseDto,
   ForgotPasswordDto,
   ForgotPasswordResponseDto,
+  GetAccessTokenDto,
+  GetAccessTokenResponseDto,
   GetActiveMemberResponseDto,
   GetActiveMemberRoleResponseDto,
+  GetApiKeyResponseDto,
   GetFullOrganizationResponseDto,
   GetInvitationResponseDto,
   GetSessionResponseDto,
@@ -47,34 +50,51 @@ import type {
   HasPermissionResponseDto,
   InviteMemberDto,
   InviteMemberResponseDto,
+  IsUsernameAvailableDto,
+  IsUsernameAvailableResponseDto,
   LeaveOrganizationDto,
   LeaveOrganizationResponseDto,
+  LinkSocialDto,
+  LinkSocialResponseDto,
+  ListAccountsResponseDto,
   ListApiKeysResponseDto,
   ListInvitationsResponseDto,
   ListMembersResponseDto,
   ListSessionsResponseDto,
   ListUserInvitationsResponseDto,
   OrganizationDto,
+  RefreshTokenDto,
+  RefreshTokenResponseDto,
   RejectInvitationDto,
   RejectInvitationResponseDto,
   RemoveMemberDto,
   RemoveMemberResponseDto,
   RequestPasswordResetDto,
   RequestPasswordResetResponseDto,
+  RequestPhonePasswordResetDto,
+  RequestPhonePasswordResetResponseDto,
   ResetPasswordCallbackResponseDto,
   ResetPasswordDto,
   ResetPasswordResponseDto,
+  ResetPhonePasswordDto,
+  ResetPhonePasswordResponseDto,
   RevokeSessionDto,
   RevokeSessionResponseDto,
+  SendPhoneOTPDto,
+  SendPhoneOTPResponseDto,
   SendVerificationEmailDto,
   SendVerificationEmailResponseDto,
   SetActiveOrganizationDto,
   SetActiveOrganizationResponseDto,
   SignInDto,
+  SignInPhoneNumberDto,
   SignInResponseDto,
   SignOutResponseDto,
   SignUpDto,
   SignUpResponseDto,
+  SocialSignInDto,
+  UnlinkAccountDto,
+  UnlinkAccountResponseDto,
   UpdateApiKeyDto,
   UpdateApiKeyResponseDto,
   UpdateMemberRoleDto,
@@ -86,6 +106,8 @@ import type {
   VerifyApiKeyDto,
   VerifyApiKeyResponseDto,
   VerifyEmailResponseDto,
+  VerifyPhoneNumberDto,
+  VerifyPhoneNumberResponseDto,
 } from '../models/index';
 import {
     AcceptInvitationDtoFromJSON,
@@ -134,10 +156,16 @@ import {
     ForgotPasswordDtoToJSON,
     ForgotPasswordResponseDtoFromJSON,
     ForgotPasswordResponseDtoToJSON,
+    GetAccessTokenDtoFromJSON,
+    GetAccessTokenDtoToJSON,
+    GetAccessTokenResponseDtoFromJSON,
+    GetAccessTokenResponseDtoToJSON,
     GetActiveMemberResponseDtoFromJSON,
     GetActiveMemberResponseDtoToJSON,
     GetActiveMemberRoleResponseDtoFromJSON,
     GetActiveMemberRoleResponseDtoToJSON,
+    GetApiKeyResponseDtoFromJSON,
+    GetApiKeyResponseDtoToJSON,
     GetFullOrganizationResponseDtoFromJSON,
     GetFullOrganizationResponseDtoToJSON,
     GetInvitationResponseDtoFromJSON,
@@ -152,10 +180,20 @@ import {
     InviteMemberDtoToJSON,
     InviteMemberResponseDtoFromJSON,
     InviteMemberResponseDtoToJSON,
+    IsUsernameAvailableDtoFromJSON,
+    IsUsernameAvailableDtoToJSON,
+    IsUsernameAvailableResponseDtoFromJSON,
+    IsUsernameAvailableResponseDtoToJSON,
     LeaveOrganizationDtoFromJSON,
     LeaveOrganizationDtoToJSON,
     LeaveOrganizationResponseDtoFromJSON,
     LeaveOrganizationResponseDtoToJSON,
+    LinkSocialDtoFromJSON,
+    LinkSocialDtoToJSON,
+    LinkSocialResponseDtoFromJSON,
+    LinkSocialResponseDtoToJSON,
+    ListAccountsResponseDtoFromJSON,
+    ListAccountsResponseDtoToJSON,
     ListApiKeysResponseDtoFromJSON,
     ListApiKeysResponseDtoToJSON,
     ListInvitationsResponseDtoFromJSON,
@@ -168,6 +206,10 @@ import {
     ListUserInvitationsResponseDtoToJSON,
     OrganizationDtoFromJSON,
     OrganizationDtoToJSON,
+    RefreshTokenDtoFromJSON,
+    RefreshTokenDtoToJSON,
+    RefreshTokenResponseDtoFromJSON,
+    RefreshTokenResponseDtoToJSON,
     RejectInvitationDtoFromJSON,
     RejectInvitationDtoToJSON,
     RejectInvitationResponseDtoFromJSON,
@@ -180,16 +222,28 @@ import {
     RequestPasswordResetDtoToJSON,
     RequestPasswordResetResponseDtoFromJSON,
     RequestPasswordResetResponseDtoToJSON,
+    RequestPhonePasswordResetDtoFromJSON,
+    RequestPhonePasswordResetDtoToJSON,
+    RequestPhonePasswordResetResponseDtoFromJSON,
+    RequestPhonePasswordResetResponseDtoToJSON,
     ResetPasswordCallbackResponseDtoFromJSON,
     ResetPasswordCallbackResponseDtoToJSON,
     ResetPasswordDtoFromJSON,
     ResetPasswordDtoToJSON,
     ResetPasswordResponseDtoFromJSON,
     ResetPasswordResponseDtoToJSON,
+    ResetPhonePasswordDtoFromJSON,
+    ResetPhonePasswordDtoToJSON,
+    ResetPhonePasswordResponseDtoFromJSON,
+    ResetPhonePasswordResponseDtoToJSON,
     RevokeSessionDtoFromJSON,
     RevokeSessionDtoToJSON,
     RevokeSessionResponseDtoFromJSON,
     RevokeSessionResponseDtoToJSON,
+    SendPhoneOTPDtoFromJSON,
+    SendPhoneOTPDtoToJSON,
+    SendPhoneOTPResponseDtoFromJSON,
+    SendPhoneOTPResponseDtoToJSON,
     SendVerificationEmailDtoFromJSON,
     SendVerificationEmailDtoToJSON,
     SendVerificationEmailResponseDtoFromJSON,
@@ -200,6 +254,8 @@ import {
     SetActiveOrganizationResponseDtoToJSON,
     SignInDtoFromJSON,
     SignInDtoToJSON,
+    SignInPhoneNumberDtoFromJSON,
+    SignInPhoneNumberDtoToJSON,
     SignInResponseDtoFromJSON,
     SignInResponseDtoToJSON,
     SignOutResponseDtoFromJSON,
@@ -208,6 +264,12 @@ import {
     SignUpDtoToJSON,
     SignUpResponseDtoFromJSON,
     SignUpResponseDtoToJSON,
+    SocialSignInDtoFromJSON,
+    SocialSignInDtoToJSON,
+    UnlinkAccountDtoFromJSON,
+    UnlinkAccountDtoToJSON,
+    UnlinkAccountResponseDtoFromJSON,
+    UnlinkAccountResponseDtoToJSON,
     UpdateApiKeyDtoFromJSON,
     UpdateApiKeyDtoToJSON,
     UpdateApiKeyResponseDtoFromJSON,
@@ -230,6 +292,10 @@ import {
     VerifyApiKeyResponseDtoToJSON,
     VerifyEmailResponseDtoFromJSON,
     VerifyEmailResponseDtoToJSON,
+    VerifyPhoneNumberDtoFromJSON,
+    VerifyPhoneNumberDtoToJSON,
+    VerifyPhoneNumberResponseDtoFromJSON,
+    VerifyPhoneNumberResponseDtoToJSON,
 } from '../models/index';
 
 export interface AcceptInvitationRequest {
@@ -276,12 +342,20 @@ export interface ForgetPasswordRequest {
     forgotPasswordDto: ForgotPasswordDto;
 }
 
+export interface GetAccessTokenRequest {
+    getAccessTokenDto: GetAccessTokenDto;
+}
+
 export interface GetActiveMemberRequest {
     organizationId?: string;
 }
 
 export interface GetActiveMemberRoleRequest {
     organizationId?: string;
+}
+
+export interface GetApiKeyRequest {
+    id: string;
 }
 
 export interface GetInvitationRequest {
@@ -300,8 +374,16 @@ export interface InviteMemberRequest {
     inviteMemberDto: InviteMemberDto;
 }
 
+export interface IsUsernameAvailableRequest {
+    isUsernameAvailableDto: IsUsernameAvailableDto;
+}
+
 export interface LeaveOrganizationRequest {
     leaveOrganizationDto: LeaveOrganizationDto;
+}
+
+export interface LinkSocialRequest {
+    linkSocialDto: LinkSocialDto;
 }
 
 export interface ListMembersRequest {
@@ -320,6 +402,10 @@ export interface ListUserInvitationsRequest {
     status?: string;
 }
 
+export interface RefreshTokenRequest {
+    refreshTokenDto: RefreshTokenDto;
+}
+
 export interface RejectInvitationRequest {
     rejectInvitationDto: RejectInvitationDto;
 }
@@ -332,17 +418,29 @@ export interface RequestPasswordResetRequest {
     requestPasswordResetDto: RequestPasswordResetDto;
 }
 
+export interface RequestPhonePasswordResetRequest {
+    requestPhonePasswordResetDto: RequestPhonePasswordResetDto;
+}
+
 export interface ResetPasswordRequest {
     resetPasswordDto: ResetPasswordDto;
 }
 
 export interface ResetPasswordCallbackRequest {
-    callbackURL: string;
     token: string;
+    callbackURL: string;
+}
+
+export interface ResetPhonePasswordRequest {
+    resetPhonePasswordDto: ResetPhonePasswordDto;
 }
 
 export interface RevokeSessionRequest {
     revokeSessionDto: RevokeSessionDto;
+}
+
+export interface SendPhoneOTPRequest {
+    sendPhoneOTPDto: SendPhoneOTPDto;
 }
 
 export interface SendVerificationEmailRequest {
@@ -357,8 +455,24 @@ export interface SignInEmailRequest {
     signInDto: SignInDto;
 }
 
+export interface SignInPhoneNumberRequest {
+    signInPhoneNumberDto: SignInPhoneNumberDto;
+}
+
+export interface SignOutRequest {
+    body: object;
+}
+
 export interface SignUpEmailRequest {
     signUpDto: SignUpDto;
+}
+
+export interface SocialSignInRequest {
+    socialSignInDto: SocialSignInDto;
+}
+
+export interface UnlinkAccountRequest {
+    unlinkAccountDto: UnlinkAccountDto;
 }
 
 export interface UpdateApiKeyRequest {
@@ -384,6 +498,10 @@ export interface VerifyApiKeyRequest {
 export interface VerifyEmailRequest {
     token: string;
     callbackURL?: string;
+}
+
+export interface VerifyPhoneNumberRequest {
+    verifyPhoneNumberDto: VerifyPhoneNumberDto;
 }
 
 /**
@@ -923,6 +1041,55 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get current access token
+     * Get Access Token
+     */
+    async getAccessTokenRaw(requestParameters: GetAccessTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAccessTokenResponseDto>> {
+        if (requestParameters['getAccessTokenDto'] == null) {
+            throw new runtime.RequiredError(
+                'getAccessTokenDto',
+                'Required parameter "getAccessTokenDto" was null or undefined when calling getAccessToken().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/get-access-token`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GetAccessTokenDtoToJSON(requestParameters['getAccessTokenDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAccessTokenResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Get current access token
+     * Get Access Token
+     */
+    async getAccessToken(getAccessTokenDto: GetAccessTokenDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAccessTokenResponseDto> {
+        const response = await this.getAccessTokenRaw({ getAccessTokenDto: getAccessTokenDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get the member details of the active organization
      * Get Active Member
      */
@@ -1005,6 +1172,56 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async getActiveMemberRole(organizationId?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetActiveMemberRoleResponseDto> {
         const response = await this.getActiveMemberRoleRaw({ organizationId: organizationId }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Retrieve a specific API key by ID
+     * Get API Key
+     */
+    async getApiKeyRaw(requestParameters: GetApiKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetApiKeyResponseDto>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getApiKey().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['id'] != null) {
+            queryParameters['id'] = requestParameters['id'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/api-key/get`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetApiKeyResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Retrieve a specific API key by ID
+     * Get API Key
+     */
+    async getApiKey(id: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetApiKeyResponseDto> {
+        const response = await this.getApiKeyRaw({ id: id }, initOverrides);
         return await response.value();
     }
 
@@ -1239,6 +1456,47 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Check if username is available for signup
+     * Check Username Availability
+     */
+    async isUsernameAvailableRaw(requestParameters: IsUsernameAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IsUsernameAvailableResponseDto>> {
+        if (requestParameters['isUsernameAvailableDto'] == null) {
+            throw new runtime.RequiredError(
+                'isUsernameAvailableDto',
+                'Required parameter "isUsernameAvailableDto" was null or undefined when calling isUsernameAvailable().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/is-username-available`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: IsUsernameAvailableDtoToJSON(requestParameters['isUsernameAvailableDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => IsUsernameAvailableResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Check if username is available for signup
+     * Check Username Availability
+     */
+    async isUsernameAvailable(isUsernameAvailableDto: IsUsernameAvailableDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IsUsernameAvailableResponseDto> {
+        const response = await this.isUsernameAvailableRaw({ isUsernameAvailableDto: isUsernameAvailableDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Leave an organization
      * Leave Organization
      */
@@ -1284,6 +1542,94 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async leaveOrganization(leaveOrganizationDto: LeaveOrganizationDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LeaveOrganizationResponseDto> {
         const response = await this.leaveOrganizationRaw({ leaveOrganizationDto: leaveOrganizationDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Link a social account to existing user
+     * Link Social Account
+     */
+    async linkSocialRaw(requestParameters: LinkSocialRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LinkSocialResponseDto>> {
+        if (requestParameters['linkSocialDto'] == null) {
+            throw new runtime.RequiredError(
+                'linkSocialDto',
+                'Required parameter "linkSocialDto" was null or undefined when calling linkSocial().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/link-social`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: LinkSocialDtoToJSON(requestParameters['linkSocialDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LinkSocialResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Link a social account to existing user
+     * Link Social Account
+     */
+    async linkSocial(linkSocialDto: LinkSocialDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LinkSocialResponseDto> {
+        const response = await this.linkSocialRaw({ linkSocialDto: linkSocialDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * List all linked social accounts
+     * List Linked Accounts
+     */
+    async listAccountsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListAccountsResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/list-accounts`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListAccountsResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * List all linked social accounts
+     * List Linked Accounts
+     */
+    async listAccounts(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListAccountsResponseDto> {
+        const response = await this.listAccountsRaw(initOverrides);
         return await response.value();
     }
 
@@ -1538,6 +1884,90 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Check if the authentication API is working
+     * Health Check
+     */
+    async okRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/api/canary/authentication/ok`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<string>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Check if the authentication API is working
+     * Health Check
+     */
+    async ok(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.okRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Refresh authentication token
+     * Refresh Token
+     */
+    async refreshTokenRaw(requestParameters: RefreshTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RefreshTokenResponseDto>> {
+        if (requestParameters['refreshTokenDto'] == null) {
+            throw new runtime.RequiredError(
+                'refreshTokenDto',
+                'Required parameter "refreshTokenDto" was null or undefined when calling refreshToken().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/refresh-token`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RefreshTokenDtoToJSON(requestParameters['refreshTokenDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RefreshTokenResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Refresh authentication token
+     * Refresh Token
+     */
+    async refreshToken(refreshTokenDto: RefreshTokenDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RefreshTokenResponseDto> {
+        const response = await this.refreshTokenRaw({ refreshTokenDto: refreshTokenDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Reject an invitation to an organization
      * Reject Invitation
      */
@@ -1677,6 +2107,47 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Request password reset via phone number
+     * Request Password Reset via Phone
+     */
+    async requestPhonePasswordResetRaw(requestParameters: RequestPhonePasswordResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RequestPhonePasswordResetResponseDto>> {
+        if (requestParameters['requestPhonePasswordResetDto'] == null) {
+            throw new runtime.RequiredError(
+                'requestPhonePasswordResetDto',
+                'Required parameter "requestPhonePasswordResetDto" was null or undefined when calling requestPhonePasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/phone-number/request-password-reset`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RequestPhonePasswordResetDtoToJSON(requestParameters['requestPhonePasswordResetDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RequestPhonePasswordResetResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Request password reset via phone number
+     * Request Password Reset via Phone
+     */
+    async requestPhonePasswordReset(requestPhonePasswordResetDto: RequestPhonePasswordResetDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RequestPhonePasswordResetResponseDto> {
+        const response = await this.requestPhonePasswordResetRaw({ requestPhonePasswordResetDto: requestPhonePasswordResetDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Reset the user\'s password using a token
      * Reset Password
      */
@@ -1722,17 +2193,17 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Reset Password Callback
      */
     async resetPasswordCallbackRaw(requestParameters: ResetPasswordCallbackRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResetPasswordCallbackResponseDto>> {
-        if (requestParameters['callbackURL'] == null) {
-            throw new runtime.RequiredError(
-                'callbackURL',
-                'Required parameter "callbackURL" was null or undefined when calling resetPasswordCallback().'
-            );
-        }
-
         if (requestParameters['token'] == null) {
             throw new runtime.RequiredError(
                 'token',
                 'Required parameter "token" was null or undefined when calling resetPasswordCallback().'
+            );
+        }
+
+        if (requestParameters['callbackURL'] == null) {
+            throw new runtime.RequiredError(
+                'callbackURL',
+                'Required parameter "callbackURL" was null or undefined when calling resetPasswordCallback().'
             );
         }
 
@@ -1762,8 +2233,88 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Redirects user to callback URL with token
      * Reset Password Callback
      */
-    async resetPasswordCallback(callbackURL: string, token: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResetPasswordCallbackResponseDto> {
-        const response = await this.resetPasswordCallbackRaw({ callbackURL: callbackURL, token: token }, initOverrides);
+    async resetPasswordCallback(token: string, callbackURL: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResetPasswordCallbackResponseDto> {
+        const response = await this.resetPasswordCallbackRaw({ token: token, callbackURL: callbackURL }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Reset password using phone verification
+     * Reset Password with Phone
+     */
+    async resetPhonePasswordRaw(requestParameters: ResetPhonePasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResetPhonePasswordResponseDto>> {
+        if (requestParameters['resetPhonePasswordDto'] == null) {
+            throw new runtime.RequiredError(
+                'resetPhonePasswordDto',
+                'Required parameter "resetPhonePasswordDto" was null or undefined when calling resetPhonePassword().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/phone-number/reset-password`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ResetPhonePasswordDtoToJSON(requestParameters['resetPhonePasswordDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResetPhonePasswordResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Reset password using phone verification
+     * Reset Password with Phone
+     */
+    async resetPhonePassword(resetPhonePasswordDto: ResetPhonePasswordDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResetPhonePasswordResponseDto> {
+        const response = await this.resetPhonePasswordRaw({ resetPhonePasswordDto: resetPhonePasswordDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Revoke all sessions except the current one
+     * Revoke Other Sessions
+     */
+    async revokeOtherSessionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevokeSessionResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/revoke-other-sessions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RevokeSessionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Revoke all sessions except the current one
+     * Revoke Other Sessions
+     */
+    async revokeOtherSessions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RevokeSessionResponseDto> {
+        const response = await this.revokeOtherSessionsRaw(initOverrides);
         return await response.value();
     }
 
@@ -1813,6 +2364,86 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async revokeSession(revokeSessionDto: RevokeSessionDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RevokeSessionResponseDto> {
         const response = await this.revokeSessionRaw({ revokeSessionDto: revokeSessionDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Revoke all sessions for the current user
+     * Revoke All Sessions
+     */
+    async revokeSessionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevokeSessionResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/revoke-sessions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RevokeSessionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Revoke all sessions for the current user
+     * Revoke All Sessions
+     */
+    async revokeSessions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RevokeSessionResponseDto> {
+        const response = await this.revokeSessionsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Send one-time password to phone number
+     * Send OTP to Phone
+     */
+    async sendPhoneOTPRaw(requestParameters: SendPhoneOTPRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendPhoneOTPResponseDto>> {
+        if (requestParameters['sendPhoneOTPDto'] == null) {
+            throw new runtime.RequiredError(
+                'sendPhoneOTPDto',
+                'Required parameter "sendPhoneOTPDto" was null or undefined when calling sendPhoneOTP().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/phone-number/send-otp`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SendPhoneOTPDtoToJSON(requestParameters['sendPhoneOTPDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SendPhoneOTPResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Send one-time password to phone number
+     * Send OTP to Phone
+     */
+    async sendPhoneOTP(sendPhoneOTPDto: SendPhoneOTPDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendPhoneOTPResponseDto> {
+        const response = await this.sendPhoneOTPRaw({ sendPhoneOTPDto: sendPhoneOTPDto }, initOverrides);
         return await response.value();
     }
 
@@ -1948,13 +2579,63 @@ export class AuthenticationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Sign out the current user and invalidate the session
-     * Sign out
+     * Sign in using phone number and password
+     * Sign in with Phone Number
      */
-    async signOutRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignOutResponseDto>> {
+    async signInPhoneNumberRaw(requestParameters: SignInPhoneNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInResponseDto>> {
+        if (requestParameters['signInPhoneNumberDto'] == null) {
+            throw new runtime.RequiredError(
+                'signInPhoneNumberDto',
+                'Required parameter "signInPhoneNumberDto" was null or undefined when calling signInPhoneNumber().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/sign-in/phone-number`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SignInPhoneNumberDtoToJSON(requestParameters['signInPhoneNumberDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignInResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Sign in using phone number and password
+     * Sign in with Phone Number
+     */
+    async signInPhoneNumber(signInPhoneNumberDto: SignInPhoneNumberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInResponseDto> {
+        const response = await this.signInPhoneNumberRaw({ signInPhoneNumberDto: signInPhoneNumberDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Sign out the current user and invalidate the session
+     * Sign out
+     */
+    async signOutRaw(requestParameters: SignOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignOutResponseDto>> {
+        if (requestParameters['body'] == null) {
+            throw new runtime.RequiredError(
+                'body',
+                'Required parameter "body" was null or undefined when calling signOut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1972,6 +2653,7 @@ export class AuthenticationApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: requestParameters['body'] as any,
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SignOutResponseDtoFromJSON(jsonValue));
@@ -1981,8 +2663,8 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Sign out the current user and invalidate the session
      * Sign out
      */
-    async signOut(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignOutResponseDto> {
-        const response = await this.signOutRaw(initOverrides);
+    async signOut(body: object, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignOutResponseDto> {
+        const response = await this.signOutRaw({ body: body }, initOverrides);
         return await response.value();
     }
 
@@ -2024,6 +2706,96 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async signUpEmail(signUpDto: SignUpDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignUpResponseDto> {
         const response = await this.signUpEmailRaw({ signUpDto: signUpDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Sign in with a social provider (OAuth, etc.)
+     * Sign in with social provider
+     */
+    async socialSignInRaw(requestParameters: SocialSignInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignInResponseDto>> {
+        if (requestParameters['socialSignInDto'] == null) {
+            throw new runtime.RequiredError(
+                'socialSignInDto',
+                'Required parameter "socialSignInDto" was null or undefined when calling socialSignIn().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/sign-in/social`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SocialSignInDtoToJSON(requestParameters['socialSignInDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignInResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Sign in with a social provider (OAuth, etc.)
+     * Sign in with social provider
+     */
+    async socialSignIn(socialSignInDto: SocialSignInDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignInResponseDto> {
+        const response = await this.socialSignInRaw({ socialSignInDto: socialSignInDto }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Unlink a social account from user
+     * Unlink Social Account
+     */
+    async unlinkAccountRaw(requestParameters: UnlinkAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnlinkAccountResponseDto>> {
+        if (requestParameters['unlinkAccountDto'] == null) {
+            throw new runtime.RequiredError(
+                'unlinkAccountDto',
+                'Required parameter "unlinkAccountDto" was null or undefined when calling unlinkAccount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearer", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/api/canary/authentication/unlink-account`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UnlinkAccountDtoToJSON(requestParameters['unlinkAccountDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UnlinkAccountResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Unlink a social account from user
+     * Unlink Social Account
+     */
+    async unlinkAccount(unlinkAccountDto: UnlinkAccountDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnlinkAccountResponseDto> {
+        const response = await this.unlinkAccountRaw({ unlinkAccountDto: unlinkAccountDto }, initOverrides);
         return await response.value();
     }
 
@@ -2278,12 +3050,12 @@ export class AuthenticationApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['callbackURL'] != null) {
-            queryParameters['callbackURL'] = requestParameters['callbackURL'];
-        }
-
         if (requestParameters['token'] != null) {
             queryParameters['token'] = requestParameters['token'];
+        }
+
+        if (requestParameters['callbackURL'] != null) {
+            queryParameters['callbackURL'] = requestParameters['callbackURL'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2307,6 +3079,47 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async verifyEmail(token: string, callbackURL?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyEmailResponseDto> {
         const response = await this.verifyEmailRaw({ token: token, callbackURL: callbackURL }, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Verify phone number with OTP code
+     * Verify Phone Number
+     */
+    async verifyPhoneNumberRaw(requestParameters: VerifyPhoneNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifyPhoneNumberResponseDto>> {
+        if (requestParameters['verifyPhoneNumberDto'] == null) {
+            throw new runtime.RequiredError(
+                'verifyPhoneNumberDto',
+                'Required parameter "verifyPhoneNumberDto" was null or undefined when calling verifyPhoneNumber().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/api/canary/authentication/phone-number/verify`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VerifyPhoneNumberDtoToJSON(requestParameters['verifyPhoneNumberDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VerifyPhoneNumberResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Verify phone number with OTP code
+     * Verify Phone Number
+     */
+    async verifyPhoneNumber(verifyPhoneNumberDto: VerifyPhoneNumberDto, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifyPhoneNumberResponseDto> {
+        const response = await this.verifyPhoneNumberRaw({ verifyPhoneNumberDto: verifyPhoneNumberDto }, initOverrides);
         return await response.value();
     }
 

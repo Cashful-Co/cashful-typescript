@@ -27,11 +27,11 @@ import {
 
 export interface ListEventsRequest {
     merchantId: string;
-    endDate?: any;
-    startDate?: any;
-    type?: any;
     limit?: number;
     offset?: number;
+    type?: string;
+    startDate?: string;
+    endDate?: string;
 }
 
 /**
@@ -53,18 +53,6 @@ export class EventsApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters['endDate'] != null) {
-            queryParameters['endDate'] = requestParameters['endDate'];
-        }
-
-        if (requestParameters['startDate'] != null) {
-            queryParameters['startDate'] = requestParameters['startDate'];
-        }
-
-        if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
-        }
-
         if (requestParameters['merchantId'] != null) {
             queryParameters['merchantId'] = requestParameters['merchantId'];
         }
@@ -75,6 +63,18 @@ export class EventsApi extends runtime.BaseAPI {
 
         if (requestParameters['offset'] != null) {
             queryParameters['offset'] = requestParameters['offset'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['startDate'] != null) {
+            queryParameters['startDate'] = requestParameters['startDate'];
+        }
+
+        if (requestParameters['endDate'] != null) {
+            queryParameters['endDate'] = requestParameters['endDate'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -104,8 +104,8 @@ export class EventsApi extends runtime.BaseAPI {
      * Retrieves a log of all API events for debugging and logging.
      * List Events
      */
-    async listEvents(merchantId: string, endDate?: any, startDate?: any, type?: any, limit?: number, offset?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListEventsResponseDto> {
-        const response = await this.listEventsRaw({ merchantId: merchantId, endDate: endDate, startDate: startDate, type: type, limit: limit, offset: offset }, initOverrides);
+    async listEvents(merchantId: string, limit?: number, offset?: number, type?: string, startDate?: string, endDate?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListEventsResponseDto> {
+        const response = await this.listEventsRaw({ merchantId: merchantId, limit: limit, offset: offset, type: type, startDate: startDate, endDate: endDate }, initOverrides);
         return await response.value();
     }
 

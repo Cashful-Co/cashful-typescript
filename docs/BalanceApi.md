@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost:3000*
 
 ## getBalanceHistory
 
-> BalanceHistoryResponseDto getBalanceHistory(merchantId, transactionType, endDate, startDate, limit, offset)
+> BalanceHistoryResponseDto getBalanceHistory(merchantId, limit, offset, startDate, endDate, transactionType)
 
 List Merchant Balance History
 
@@ -37,16 +37,16 @@ async function example() {
   const body = {
     // string | The ID of the merchant. This parameter is required.
     merchantId: merchantId_example,
-    // any | Filter by transaction type (e.g., \"credit\", \"debit\", \"fee\", \"payout\") (optional)
-    transactionType: ...,
-    // any | Filter transactions until this date (ISO 8601 format) (optional)
-    endDate: ...,
-    // any | Filter transactions from this date (ISO 8601 format) (optional)
-    startDate: ...,
     // number | Maximum number of records to return (optional)
     limit: 8.14,
     // number | Number of records to skip (optional)
     offset: 8.14,
+    // string | Filter transactions from this date (ISO 8601 format) (optional)
+    startDate: startDate_example,
+    // string | Filter transactions until this date (ISO 8601 format) (optional)
+    endDate: endDate_example,
+    // string | Filter by transaction type (e.g., \"credit\", \"debit\", \"fee\", \"payout\") (optional)
+    transactionType: transactionType_example,
   } satisfies GetBalanceHistoryRequest;
 
   try {
@@ -67,11 +67,11 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | `string` | The ID of the merchant. This parameter is required. | [Defaults to `undefined`] |
-| **transactionType** | `any` | Filter by transaction type (e.g., \&quot;credit\&quot;, \&quot;debit\&quot;, \&quot;fee\&quot;, \&quot;payout\&quot;) | [Optional] [Defaults to `undefined`] |
-| **endDate** | `any` | Filter transactions until this date (ISO 8601 format) | [Optional] [Defaults to `undefined`] |
-| **startDate** | `any` | Filter transactions from this date (ISO 8601 format) | [Optional] [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **startDate** | `string` | Filter transactions from this date (ISO 8601 format) | [Optional] [Defaults to `undefined`] |
+| **endDate** | `string` | Filter transactions until this date (ISO 8601 format) | [Optional] [Defaults to `undefined`] |
+| **transactionType** | `string` | Filter by transaction type (e.g., \&quot;credit\&quot;, \&quot;debit\&quot;, \&quot;fee\&quot;, \&quot;payout\&quot;) | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

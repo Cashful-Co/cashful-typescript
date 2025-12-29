@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listCheckoutSessions
 
-> ListCheckoutSessionsResponseDto listCheckoutSessions(merchantId, limit, offset)
+> ListCheckoutSessionsResponseDto listCheckoutSessions(total, hasMore, merchantId, limit, offset, status)
 
 List Checkout Sessions
 
@@ -110,12 +110,18 @@ async function example() {
   const api = new CheckoutsApi(config);
 
   const body = {
+    // number | Total number of items available
+    total: 150,
+    // boolean | Whether there are more items available beyond this response
+    hasMore: true,
     // string | The ID of the merchant. This parameter is required.
     merchantId: merchantId_example,
     // number | Maximum number of records to return (optional)
-    limit: 8.14,
+    limit: 50,
     // number | Number of records to skip (optional)
-    offset: 8.14,
+    offset: 0,
+    // string | The status to filter checkout sessions (optional)
+    status: status_example,
   } satisfies ListCheckoutSessionsRequest;
 
   try {
@@ -135,9 +141,12 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **total** | `number` | Total number of items available | [Defaults to `undefined`] |
+| **hasMore** | `boolean` | Whether there are more items available beyond this response | [Defaults to `undefined`] |
 | **merchantId** | `string` | The ID of the merchant. This parameter is required. | [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **status** | `string` | The status to filter checkout sessions | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

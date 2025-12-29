@@ -86,7 +86,7 @@ example().catch(console.error);
 
 ## listPayouts
 
-> ListPayoutsResponseDto listPayouts(merchantId, status, limit, offset)
+> ListPayoutsResponseDto listPayouts(merchantId, limit, offset, status)
 
 List Payouts
 
@@ -112,12 +112,12 @@ async function example() {
   const body = {
     // string | The ID of the merchant. This parameter is required.
     merchantId: merchantId_example,
-    // any | Filter by status (optional)
-    status: ...,
     // number | Maximum number of records to return (optional)
     limit: 8.14,
     // number | Number of records to skip (optional)
     offset: 8.14,
+    // string | Filter by status (optional)
+    status: status_example,
   } satisfies ListPayoutsRequest;
 
   try {
@@ -138,9 +138,9 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | `string` | The ID of the merchant. This parameter is required. | [Defaults to `undefined`] |
-| **status** | `any` | Filter by status | [Optional] [Defaults to `undefined`] |
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
+| **status** | `string` | Filter by status | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
