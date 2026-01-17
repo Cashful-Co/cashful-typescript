@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost:9000*
 
 ## listEvents
 
-> ListEventsResponseDto listEvents(merchantId, limit, offset, type, startDate, endDate)
+> ListEventsResponseDto listEvents(merchantId, limit, offset, type, status, startDate, endDate)
 
 List Events
 
@@ -42,6 +42,8 @@ async function example() {
     offset: 8.14,
     // string | Filter by event type (optional)
     type: type_example,
+    // 'pending' | 'delivered' | 'failed' | Filter by event status (optional)
+    status: status_example,
     // string | Filter by start date (optional)
     startDate: startDate_example,
     // string | Filter by end date (optional)
@@ -69,6 +71,7 @@ example().catch(console.error);
 | **limit** | `number` | Maximum number of records to return | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | Number of records to skip | [Optional] [Defaults to `undefined`] |
 | **type** | `string` | Filter by event type | [Optional] [Defaults to `undefined`] |
+| **status** | `pending`, `delivered`, `failed` | Filter by event status | [Optional] [Defaults to `undefined`] [Enum: pending, delivered, failed] |
 | **startDate** | `string` | Filter by start date | [Optional] [Defaults to `undefined`] |
 | **endDate** | `string` | Filter by end date | [Optional] [Defaults to `undefined`] |
 

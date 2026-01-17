@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost:9000*
 |------------- | ------------- | -------------|
 | [**createProduct**](ProductsApi.md#createproduct) | **POST** /api/canary/products | Create Product |
 | [**listProducts**](ProductsApi.md#listproducts) | **GET** /api/canary/products | List Products |
+| [**retrieveProduct**](ProductsApi.md#retrieveproduct) | **GET** /api/canary/products/{id} | Retrieve Product |
 | [**updateProduct**](ProductsApi.md#updateproduct) | **PATCH** /api/canary/products/{id} | Update Product |
 
 
@@ -161,6 +162,80 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved products |  -  |
 | **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## retrieveProduct
+
+> ProductResponseDto retrieveProduct(id)
+
+Retrieve Product
+
+Retrieves a single product by ID.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ProductsApi,
+} from '@cashful-co/typescript';
+import type { RetrieveProductRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new ProductsApi(config);
+
+  const body = {
+    // string | The unique identifier of the product
+    id: id_example,
+  } satisfies RetrieveProductRequest;
+
+  try {
+    const data = await api.retrieveProduct(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | The unique identifier of the product | [Defaults to `undefined`] |
+
+### Return type
+
+[**ProductResponseDto**](ProductResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved product |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |

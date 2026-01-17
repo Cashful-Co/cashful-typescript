@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `merchantId` | string
+`phoneNumber` | string
 `email` | string
 `name` | string
 `metadata` | { [key: string]: any; }
@@ -19,6 +20,7 @@ import type { CreateCustomerDto } from '@cashful-co/typescript'
 // TODO: Update the object below with actual values
 const example = {
   "merchantId": null,
+  "phoneNumber": null,
   "email": null,
   "name": null,
   "metadata": {"customField":"value","orderId":"12345"},

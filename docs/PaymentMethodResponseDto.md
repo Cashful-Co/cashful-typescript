@@ -9,12 +9,15 @@ Name | Type
 `id` | string
 `customerId` | string
 `type` | string
+`provider` | string
 `brand` | string
 `last4` | string
 `expiryMonth` | number
 `expiryYear` | number
+`phoneNumber` | string
 `isDefault` | boolean
 `createdAt` | Date
+`updatedAt` | Date
 
 ## Example
 
@@ -26,12 +29,15 @@ const example = {
   "id": null,
   "customerId": null,
   "type": null,
+  "provider": null,
   "brand": null,
   "last4": null,
   "expiryMonth": null,
   "expiryYear": null,
+  "phoneNumber": null,
   "isDefault": null,
   "createdAt": null,
+  "updatedAt": null,
 } satisfies PaymentMethodResponseDto
 
 console.log(example)

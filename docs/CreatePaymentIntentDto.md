@@ -11,8 +11,11 @@ Name | Type
 `paymentMethodId` | string
 `amount` | number
 `currency` | string
+`mode` | string
 `description` | string
 `metadata` | { [key: string]: any; }
+`idempotencyKey` | string
+`expiresAt` | Date
 
 ## Example
 
@@ -25,9 +28,12 @@ const example = {
   "customerId": null,
   "paymentMethodId": null,
   "amount": null,
-  "currency": null,
+  "currency": ZAR,
+  "mode": null,
   "description": null,
-  "metadata": {"customField":"value","orderId":"12345"},
+  "metadata": {"orderId":"12345","customField":"value"},
+  "idempotencyKey": null,
+  "expiresAt": null,
 } satisfies CreatePaymentIntentDto
 
 console.log(example)

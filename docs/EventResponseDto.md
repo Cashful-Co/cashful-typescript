@@ -8,11 +8,18 @@ Name | Type
 ------------ | -------------
 `id` | string
 `merchantId` | string
+`webhookEndpointId` | string
 `type` | string
 `data` | object
+`status` | string
+`attempts` | number
 `relatedEntityId` | string
 `relatedEntityType` | string
+`lastAttemptAt` | Date
+`nextRetryAt` | Date
+`deliveredAt` | Date
 `createdAt` | Date
+`updatedAt` | Date
 
 ## Example
 
@@ -23,11 +30,18 @@ import type { EventResponseDto } from '@cashful-co/typescript'
 const example = {
   "id": null,
   "merchantId": null,
+  "webhookEndpointId": null,
   "type": null,
   "data": {"key":"value"},
+  "status": null,
+  "attempts": null,
   "relatedEntityId": null,
   "relatedEntityType": null,
+  "lastAttemptAt": null,
+  "nextRetryAt": null,
+  "deliveredAt": null,
   "createdAt": null,
+  "updatedAt": null,
 } satisfies EventResponseDto
 
 console.log(example)

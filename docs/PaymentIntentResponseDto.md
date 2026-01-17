@@ -13,10 +13,14 @@ Name | Type
 `amount` | number
 `currency` | string
 `status` | string
+`mode` | string
 `description` | string
 `metadata` | { [key: string]: any; }
+`idempotencyKey` | string
+`expiresAt` | Date
 `createdAt` | Date
 `updatedAt` | Date
+`deletedAt` | Date
 
 ## Example
 
@@ -32,10 +36,14 @@ const example = {
   "amount": null,
   "currency": null,
   "status": null,
+  "mode": null,
   "description": null,
   "metadata": {"orderId":"12345"},
+  "idempotencyKey": null,
+  "expiresAt": null,
   "createdAt": null,
   "updatedAt": null,
+  "deletedAt": null,
 } satisfies PaymentIntentResponseDto
 
 console.log(example)

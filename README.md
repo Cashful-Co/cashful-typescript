@@ -1,4 +1,4 @@
-# @cashful-co/typescript@0.4.0
+# @cashful-co/typescript@0.6.0
 
 A TypeScript SDK client for the localhost API.
 
@@ -55,6 +55,7 @@ All URIs are relative to *http://localhost:9000*
 | Class | Method | HTTP request | Description
 | ----- | ------ | ------------ | -------------
 *AnalyticsApi* | [**getAnalytics**](docs/AnalyticsApi.md#getanalytics) | **GET** /api/canary/analytics | Get Analytics
+*AnalyticsApi* | [**getAnalyticsSummary**](docs/AnalyticsApi.md#getanalyticssummary) | **GET** /api/canary/analytics/summary | Get Analytics Summary
 *AuthenticationApi* | [**acceptInvitation**](docs/AuthenticationApi.md#acceptinvitation) | **POST** /api/canary/authentication/organization/accept-invitation | Accept Invitation
 *AuthenticationApi* | [**cancelInvitation**](docs/AuthenticationApi.md#cancelinvitation) | **POST** /api/canary/authentication/organization/cancel-invitation | Cancel Invitation
 *AuthenticationApi* | [**changeEmail**](docs/AuthenticationApi.md#changeemail) | **POST** /api/canary/authentication/change-email | Change Email
@@ -118,6 +119,9 @@ All URIs are relative to *http://localhost:9000*
 *CheckoutsApi* | [**createCheckoutSession**](docs/CheckoutsApi.md#createcheckoutsession) | **POST** /api/canary/checkout/sessions | Create Hosted Checkout
 *CheckoutsApi* | [**listCheckoutSessions**](docs/CheckoutsApi.md#listcheckoutsessions) | **GET** /api/canary/checkout/sessions | List Checkout Sessions
 *CheckoutsApi* | [**retrieveCheckoutSession**](docs/CheckoutsApi.md#retrievecheckoutsession) | **GET** /api/canary/checkout/sessions/{id} | Retrieve Checkout Session
+*ComplianceApi* | [**createCompliance**](docs/ComplianceApi.md#createcompliance) | **POST** /api/canary/compliance | Create Compliance info
+*ComplianceApi* | [**getCompliance**](docs/ComplianceApi.md#getcompliance) | **GET** /api/canary/compliance | Get Compliance info for organization
+*ComplianceApi* | [**updateCompliance**](docs/ComplianceApi.md#updatecompliance) | **PATCH** /api/canary/compliance/{id} | Update Compliance info
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createcustomer) | **POST** /api/canary/customers | Create Customer
 *CustomersApi* | [**getCustomerBalance**](docs/CustomersApi.md#getcustomerbalance) | **GET** /api/canary/customers/{id}/balance | Get Customer\&#39;s Cash Balance
 *CustomersApi* | [**listCustomerPaymentMethods**](docs/CustomersApi.md#listcustomerpaymentmethods) | **GET** /api/canary/customers/{id}/payment-methods | List Customer\&#39;s Payment Methods
@@ -127,17 +131,18 @@ All URIs are relative to *http://localhost:9000*
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updatecustomer) | **PATCH** /api/canary/customers/{id} | Update Customer
 *EventsApi* | [**listEvents**](docs/EventsApi.md#listevents) | **GET** /api/canary/events | List Events
 *HealthApi* | [**checkHealth**](docs/HealthApi.md#checkhealth) | **GET** /api/canary/health | Health check endpoint
-*KYCApi* | [**createKyc**](docs/KYCApi.md#createkyc) | **POST** /api/canary/kyc | Create KYC info
-*KYCApi* | [**getKyc**](docs/KYCApi.md#getkyc) | **GET** /api/canary/kyc | Get KYC info for organization
-*KYCApi* | [**updateKyc**](docs/KYCApi.md#updatekyc) | **PATCH** /api/canary/kyc/{id} | Update KYC info
 *NotificationsApi* | [**sendEmail**](docs/NotificationsApi.md#sendemail) | **POST** /api/canary/notifications/email | Send an email notification
 *NotificationsApi* | [**sendMultiChannelNotification**](docs/NotificationsApi.md#sendmultichannelnotification) | **POST** /api/canary/notifications/multi-channel | Send notifications via multiple channels
 *NotificationsApi* | [**sendNotification**](docs/NotificationsApi.md#sendnotification) | **POST** /api/canary/notifications/send | Send a notification via specified channel
 *NotificationsApi* | [**sendSms**](docs/NotificationsApi.md#sendsms) | **POST** /api/canary/notifications/sms | Send an SMS notification
-*PaymentIntentsApi* | [**createPaymentIntent**](docs/PaymentIntentsApi.md#createpaymentintent) | **POST** /api/canary/payment-intents | Create Off-Session Charge
+*PaymentIntentsApi* | [**cancelPaymentIntent**](docs/PaymentIntentsApi.md#cancelpaymentintent) | **POST** /api/canary/payment-intents/{id}/cancel | Cancel Payment Intent
+*PaymentIntentsApi* | [**confirmPaymentIntent**](docs/PaymentIntentsApi.md#confirmpaymentintent) | **POST** /api/canary/payment-intents/{id}/confirm | Confirm Payment Intent
+*PaymentIntentsApi* | [**createPaymentIntent**](docs/PaymentIntentsApi.md#createpaymentintent) | **POST** /api/canary/payment-intents | Create Payment Intent
+*PaymentIntentsApi* | [**listPaymentIntents**](docs/PaymentIntentsApi.md#listpaymentintents) | **GET** /api/canary/payment-intents | List Payment Intents
 *PaymentIntentsApi* | [**retrievePaymentIntent**](docs/PaymentIntentsApi.md#retrievepaymentintent) | **GET** /api/canary/payment-intents/{id} | Retrieve Payment Intent
 *PaymentLinksApi* | [**createPaymentLink**](docs/PaymentLinksApi.md#createpaymentlink) | **POST** /api/canary/payment-links | Create Payment Link
 *PaymentLinksApi* | [**listPaymentLinks**](docs/PaymentLinksApi.md#listpaymentlinks) | **GET** /api/canary/payment-links | List Payment Links
+*PaymentLinksApi* | [**retrievePaymentLink**](docs/PaymentLinksApi.md#retrievepaymentlink) | **GET** /api/canary/payment-links/{id} | Retrieve Payment Link
 *PaymentLinksApi* | [**updatePaymentLink**](docs/PaymentLinksApi.md#updatepaymentlink) | **PATCH** /api/canary/payment-links/{id} | Update Payment Link
 *PaymentMethodsApi* | [**deletePaymentMethod**](docs/PaymentMethodsApi.md#deletepaymentmethod) | **DELETE** /api/canary/payment-methods/{id} | Delete Payment Method
 *PaymentMethodsApi* | [**listPaymentMethods**](docs/PaymentMethodsApi.md#listpaymentmethods) | **GET** /api/canary/payment-methods | List Payment Methods
@@ -146,8 +151,15 @@ All URIs are relative to *http://localhost:9000*
 *PayoutsApi* | [**listPayouts**](docs/PayoutsApi.md#listpayouts) | **GET** /api/canary/payouts | List Payouts
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createproduct) | **POST** /api/canary/products | Create Product
 *ProductsApi* | [**listProducts**](docs/ProductsApi.md#listproducts) | **GET** /api/canary/products | List Products
+*ProductsApi* | [**retrieveProduct**](docs/ProductsApi.md#retrieveproduct) | **GET** /api/canary/products/{id} | Retrieve Product
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateproduct) | **PATCH** /api/canary/products/{id} | Update Product
 *PurchasesApi* | [**createPurchase**](docs/PurchasesApi.md#createpurchase) | **POST** /api/canary/purchases | Buy with Cash Balance
+*StorageApi* | [**storageControllerConfirmUploadCanary**](docs/StorageApi.md#storagecontrollerconfirmuploadcanary) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed
+*StorageApi* | [**storageControllerDeleteCanary**](docs/StorageApi.md#storagecontrollerdeletecanary) | **DELETE** /api/canary/storage/{id} | Delete a file
+*StorageApi* | [**storageControllerGetDownloadUrlCanary**](docs/StorageApi.md#storagecontrollergetdownloadurlcanary) | **GET** /api/canary/storage/{id}/download-url | Get a presigned download URL for a file
+*StorageApi* | [**storageControllerListCanary**](docs/StorageApi.md#storagecontrollerlistcanary) | **GET** /api/canary/storage | List files
+*StorageApi* | [**storageControllerRequestUploadUrlCanary**](docs/StorageApi.md#storagecontrollerrequestuploadurlcanary) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload
+*StorageApi* | [**storageControllerRetrieveCanary**](docs/StorageApi.md#storagecontrollerretrievecanary) | **GET** /api/canary/storage/{id} | Get file details
 *TransfersApi* | [**createTransfer**](docs/TransfersApi.md#createtransfer) | **POST** /api/canary/transfers | Create P2P Transfer
 *WebhooksApi* | [**createWebhookEndpoint**](docs/WebhooksApi.md#createwebhookendpoint) | **POST** /api/canary/webhook-endpoints | Create Webhook Endpoint
 *WebhooksApi* | [**deleteWebhookEndpoint**](docs/WebhooksApi.md#deletewebhookendpoint) | **DELETE** /api/canary/webhook-endpoints/{id} | Delete Webhook Endpoint
@@ -175,6 +187,7 @@ All URIs are relative to *http://localhost:9000*
 - [AdminUpdateUserDto](docs/AdminUpdateUserDto.md)
 - [AdminUpdateUserResponseDto](docs/AdminUpdateUserResponseDto.md)
 - [AnalyticsResponseDto](docs/AnalyticsResponseDto.md)
+- [AnalyticsSummaryDto](docs/AnalyticsSummaryDto.md)
 - [ApiKey](docs/ApiKey.md)
 - [BalanceHistoryResponseDto](docs/BalanceHistoryResponseDto.md)
 - [BalanceTransactionDto](docs/BalanceTransactionDto.md)
@@ -190,13 +203,14 @@ All URIs are relative to *http://localhost:9000*
 - [CheckSlugDto](docs/CheckSlugDto.md)
 - [CheckSlugResponseDto](docs/CheckSlugResponseDto.md)
 - [CheckoutSessionResponseDto](docs/CheckoutSessionResponseDto.md)
+- [ConfirmUploadDto](docs/ConfirmUploadDto.md)
 - [CreateApiKeyDto](docs/CreateApiKeyDto.md)
 - [CreateApiKeyResponseDto](docs/CreateApiKeyResponseDto.md)
 - [CreateBalanceDto](docs/CreateBalanceDto.md)
 - [CreateCheckoutSessionDto](docs/CreateCheckoutSessionDto.md)
 - [CreateCustomerDto](docs/CreateCustomerDto.md)
+- [CreateOrganizationComplianceDto](docs/CreateOrganizationComplianceDto.md)
 - [CreateOrganizationDto](docs/CreateOrganizationDto.md)
-- [CreateOrganizationKycDto](docs/CreateOrganizationKycDto.md)
 - [CreateOrganizationResponseDto](docs/CreateOrganizationResponseDto.md)
 - [CreatePaymentIntentDto](docs/CreatePaymentIntentDto.md)
 - [CreatePaymentLinkDto](docs/CreatePaymentLinkDto.md)
@@ -220,6 +234,7 @@ All URIs are relative to *http://localhost:9000*
 - [ErrorResponseDto](docs/ErrorResponseDto.md)
 - [EventResponseDto](docs/EventResponseDto.md)
 - [EvervaultEncryptedCardDto](docs/EvervaultEncryptedCardDto.md)
+- [FileDto](docs/FileDto.md)
 - [ForgotPasswordDto](docs/ForgotPasswordDto.md)
 - [ForgotPasswordResponseDto](docs/ForgotPasswordResponseDto.md)
 - [GetAccessTokenDto](docs/GetAccessTokenDto.md)
@@ -254,9 +269,10 @@ All URIs are relative to *http://localhost:9000*
 - [ListCustomerTransactionsResponseDto](docs/ListCustomerTransactionsResponseDto.md)
 - [ListCustomersResponseDto](docs/ListCustomersResponseDto.md)
 - [ListEventsResponseDto](docs/ListEventsResponseDto.md)
+- [ListFilesResponseDto](docs/ListFilesResponseDto.md)
 - [ListInvitationsResponseDto](docs/ListInvitationsResponseDto.md)
 - [ListMembersResponseDto](docs/ListMembersResponseDto.md)
-- [ListOrganizationKycResponseDto](docs/ListOrganizationKycResponseDto.md)
+- [ListOrganizationComplianceResponseDto](docs/ListOrganizationComplianceResponseDto.md)
 - [ListPaymentLinksResponseDto](docs/ListPaymentLinksResponseDto.md)
 - [ListPaymentMethodsResponseDto](docs/ListPaymentMethodsResponseDto.md)
 - [ListPayoutsResponseDto](docs/ListPayoutsResponseDto.md)
@@ -269,13 +285,15 @@ All URIs are relative to *http://localhost:9000*
 - [MerchantBalanceResponseDto](docs/MerchantBalanceResponseDto.md)
 - [MetricStatsDto](docs/MetricStatsDto.md)
 - [NotificationDto](docs/NotificationDto.md)
+- [OrganizationComplianceResponseDto](docs/OrganizationComplianceResponseDto.md)
 - [OrganizationDto](docs/OrganizationDto.md)
-- [OrganizationKycResponseDto](docs/OrganizationKycResponseDto.md)
 - [PaginationResponseDto](docs/PaginationResponseDto.md)
 - [PaymentIntentResponseDto](docs/PaymentIntentResponseDto.md)
 - [PaymentLinkResponseDto](docs/PaymentLinkResponseDto.md)
 - [PaymentMethodResponseDto](docs/PaymentMethodResponseDto.md)
 - [PayoutResponseDto](docs/PayoutResponseDto.md)
+- [PresignedDownloadResponseDto](docs/PresignedDownloadResponseDto.md)
+- [PresignedUploadResponseDto](docs/PresignedUploadResponseDto.md)
 - [ProductResponseDto](docs/ProductResponseDto.md)
 - [PurchaseResponseDto](docs/PurchaseResponseDto.md)
 - [RefreshTokenDto](docs/RefreshTokenDto.md)
@@ -288,6 +306,7 @@ All URIs are relative to *http://localhost:9000*
 - [RequestPasswordResetResponseDto](docs/RequestPasswordResetResponseDto.md)
 - [RequestPhonePasswordResetDto](docs/RequestPhonePasswordResetDto.md)
 - [RequestPhonePasswordResetResponseDto](docs/RequestPhonePasswordResetResponseDto.md)
+- [RequestUploadUrlDto](docs/RequestUploadUrlDto.md)
 - [ResetPasswordCallbackResponseDto](docs/ResetPasswordCallbackResponseDto.md)
 - [ResetPasswordDto](docs/ResetPasswordDto.md)
 - [ResetPasswordResponseDto](docs/ResetPasswordResponseDto.md)
@@ -330,8 +349,8 @@ All URIs are relative to *http://localhost:9000*
 - [UpdateCustomerDto](docs/UpdateCustomerDto.md)
 - [UpdateMemberRoleDto](docs/UpdateMemberRoleDto.md)
 - [UpdateMemberRoleResponseDto](docs/UpdateMemberRoleResponseDto.md)
+- [UpdateOrganizationComplianceDto](docs/UpdateOrganizationComplianceDto.md)
 - [UpdateOrganizationDto](docs/UpdateOrganizationDto.md)
-- [UpdateOrganizationKycDto](docs/UpdateOrganizationKycDto.md)
 - [UpdateOrganizationResponseDto](docs/UpdateOrganizationResponseDto.md)
 - [UpdatePaymentLinkDto](docs/UpdatePaymentLinkDto.md)
 - [UpdatePayoutDto](docs/UpdatePayoutDto.md)
@@ -362,8 +381,8 @@ This TypeScript SDK client supports the [Fetch API](https://fetch.spec.whatwg.or
 and is automatically generated by the
 [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.0.0`
-- Package version: `0.4.0`
+- API version: `0.6.0`
+- Package version: `0.6.0`
 - Generator version: `7.17.0`
 - Build package: `org.openapitools.codegen.languages.TypeScriptFetchClientCodegen`
 

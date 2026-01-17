@@ -21,6 +21,7 @@ docs/AdminUpdateUserDto.md
 docs/AdminUpdateUserResponseDto.md
 docs/AnalyticsApi.md
 docs/AnalyticsResponseDto.md
+docs/AnalyticsSummaryDto.md
 docs/ApiKey.md
 docs/AuthenticationApi.md
 docs/BalanceApi.md
@@ -39,13 +40,15 @@ docs/CheckSlugDto.md
 docs/CheckSlugResponseDto.md
 docs/CheckoutSessionResponseDto.md
 docs/CheckoutsApi.md
+docs/ComplianceApi.md
+docs/ConfirmUploadDto.md
 docs/CreateApiKeyDto.md
 docs/CreateApiKeyResponseDto.md
 docs/CreateBalanceDto.md
 docs/CreateCheckoutSessionDto.md
 docs/CreateCustomerDto.md
+docs/CreateOrganizationComplianceDto.md
 docs/CreateOrganizationDto.md
-docs/CreateOrganizationKycDto.md
 docs/CreateOrganizationResponseDto.md
 docs/CreatePaymentIntentDto.md
 docs/CreatePaymentLinkDto.md
@@ -71,6 +74,7 @@ docs/ErrorResponseDto.md
 docs/EventResponseDto.md
 docs/EventsApi.md
 docs/EvervaultEncryptedCardDto.md
+docs/FileDto.md
 docs/ForgotPasswordDto.md
 docs/ForgotPasswordResponseDto.md
 docs/GetAccessTokenDto.md
@@ -95,7 +99,6 @@ docs/InviteMemberResponseDto.md
 docs/IsUsernameAvailableDto.md
 docs/IsUsernameAvailableResponseDto.md
 docs/IveriParamsDto.md
-docs/KYCApi.md
 docs/LeaveOrganizationDto.md
 docs/LeaveOrganizationResponseDto.md
 docs/LineItemDto.md
@@ -107,9 +110,10 @@ docs/ListCheckoutSessionsResponseDto.md
 docs/ListCustomerTransactionsResponseDto.md
 docs/ListCustomersResponseDto.md
 docs/ListEventsResponseDto.md
+docs/ListFilesResponseDto.md
 docs/ListInvitationsResponseDto.md
 docs/ListMembersResponseDto.md
-docs/ListOrganizationKycResponseDto.md
+docs/ListOrganizationComplianceResponseDto.md
 docs/ListPaymentLinksResponseDto.md
 docs/ListPaymentMethodsResponseDto.md
 docs/ListPayoutsResponseDto.md
@@ -123,8 +127,8 @@ docs/MerchantBalanceResponseDto.md
 docs/MetricStatsDto.md
 docs/NotificationDto.md
 docs/NotificationsApi.md
+docs/OrganizationComplianceResponseDto.md
 docs/OrganizationDto.md
-docs/OrganizationKycResponseDto.md
 docs/PaginationResponseDto.md
 docs/PaymentIntentResponseDto.md
 docs/PaymentIntentsApi.md
@@ -134,6 +138,8 @@ docs/PaymentMethodResponseDto.md
 docs/PaymentMethodsApi.md
 docs/PayoutResponseDto.md
 docs/PayoutsApi.md
+docs/PresignedDownloadResponseDto.md
+docs/PresignedUploadResponseDto.md
 docs/ProductResponseDto.md
 docs/ProductsApi.md
 docs/PurchaseResponseDto.md
@@ -148,6 +154,7 @@ docs/RequestPasswordResetDto.md
 docs/RequestPasswordResetResponseDto.md
 docs/RequestPhonePasswordResetDto.md
 docs/RequestPhonePasswordResetResponseDto.md
+docs/RequestUploadUrlDto.md
 docs/ResetPasswordCallbackResponseDto.md
 docs/ResetPasswordDto.md
 docs/ResetPasswordResponseDto.md
@@ -178,6 +185,7 @@ docs/SignUpDto.md
 docs/SignUpResponseDto.md
 docs/SocialSignInDto.md
 docs/StopImpersonatingResponseDto.md
+docs/StorageApi.md
 docs/TimeframeMetricsDto.md
 docs/TransferResponseDto.md
 docs/TransfersApi.md
@@ -191,8 +199,8 @@ docs/UpdateBalanceDto.md
 docs/UpdateCustomerDto.md
 docs/UpdateMemberRoleDto.md
 docs/UpdateMemberRoleResponseDto.md
+docs/UpdateOrganizationComplianceDto.md
 docs/UpdateOrganizationDto.md
-docs/UpdateOrganizationKycDto.md
 docs/UpdateOrganizationResponseDto.md
 docs/UpdatePaymentLinkDto.md
 docs/UpdatePayoutDto.md
@@ -212,10 +220,10 @@ src/apis/AnalyticsApi.ts
 src/apis/AuthenticationApi.ts
 src/apis/BalanceApi.ts
 src/apis/CheckoutsApi.ts
+src/apis/ComplianceApi.ts
 src/apis/CustomersApi.ts
 src/apis/EventsApi.ts
 src/apis/HealthApi.ts
-src/apis/KYCApi.ts
 src/apis/NotificationsApi.ts
 src/apis/PaymentIntentsApi.ts
 src/apis/PaymentLinksApi.ts
@@ -223,6 +231,7 @@ src/apis/PaymentMethodsApi.ts
 src/apis/PayoutsApi.ts
 src/apis/ProductsApi.ts
 src/apis/PurchasesApi.ts
+src/apis/StorageApi.ts
 src/apis/TransfersApi.ts
 src/apis/WebhooksApi.ts
 src/apis/index.ts
@@ -246,6 +255,7 @@ src/models/AdminSetUserPasswordResponseDto.ts
 src/models/AdminUpdateUserDto.ts
 src/models/AdminUpdateUserResponseDto.ts
 src/models/AnalyticsResponseDto.ts
+src/models/AnalyticsSummaryDto.ts
 src/models/ApiKey.ts
 src/models/BalanceHistoryResponseDto.ts
 src/models/BalanceTransactionDto.ts
@@ -261,13 +271,14 @@ src/models/ChangePasswordResponseDto.ts
 src/models/CheckSlugDto.ts
 src/models/CheckSlugResponseDto.ts
 src/models/CheckoutSessionResponseDto.ts
+src/models/ConfirmUploadDto.ts
 src/models/CreateApiKeyDto.ts
 src/models/CreateApiKeyResponseDto.ts
 src/models/CreateBalanceDto.ts
 src/models/CreateCheckoutSessionDto.ts
 src/models/CreateCustomerDto.ts
+src/models/CreateOrganizationComplianceDto.ts
 src/models/CreateOrganizationDto.ts
-src/models/CreateOrganizationKycDto.ts
 src/models/CreateOrganizationResponseDto.ts
 src/models/CreatePaymentIntentDto.ts
 src/models/CreatePaymentLinkDto.ts
@@ -291,6 +302,7 @@ src/models/DeleteUserResponseDto.ts
 src/models/ErrorResponseDto.ts
 src/models/EventResponseDto.ts
 src/models/EvervaultEncryptedCardDto.ts
+src/models/FileDto.ts
 src/models/ForgotPasswordDto.ts
 src/models/ForgotPasswordResponseDto.ts
 src/models/GetAccessTokenDto.ts
@@ -325,9 +337,10 @@ src/models/ListCheckoutSessionsResponseDto.ts
 src/models/ListCustomerTransactionsResponseDto.ts
 src/models/ListCustomersResponseDto.ts
 src/models/ListEventsResponseDto.ts
+src/models/ListFilesResponseDto.ts
 src/models/ListInvitationsResponseDto.ts
 src/models/ListMembersResponseDto.ts
-src/models/ListOrganizationKycResponseDto.ts
+src/models/ListOrganizationComplianceResponseDto.ts
 src/models/ListPaymentLinksResponseDto.ts
 src/models/ListPaymentMethodsResponseDto.ts
 src/models/ListPayoutsResponseDto.ts
@@ -340,13 +353,15 @@ src/models/MemberDto.ts
 src/models/MerchantBalanceResponseDto.ts
 src/models/MetricStatsDto.ts
 src/models/NotificationDto.ts
+src/models/OrganizationComplianceResponseDto.ts
 src/models/OrganizationDto.ts
-src/models/OrganizationKycResponseDto.ts
 src/models/PaginationResponseDto.ts
 src/models/PaymentIntentResponseDto.ts
 src/models/PaymentLinkResponseDto.ts
 src/models/PaymentMethodResponseDto.ts
 src/models/PayoutResponseDto.ts
+src/models/PresignedDownloadResponseDto.ts
+src/models/PresignedUploadResponseDto.ts
 src/models/ProductResponseDto.ts
 src/models/PurchaseResponseDto.ts
 src/models/RefreshTokenDto.ts
@@ -359,6 +374,7 @@ src/models/RequestPasswordResetDto.ts
 src/models/RequestPasswordResetResponseDto.ts
 src/models/RequestPhonePasswordResetDto.ts
 src/models/RequestPhonePasswordResetResponseDto.ts
+src/models/RequestUploadUrlDto.ts
 src/models/ResetPasswordCallbackResponseDto.ts
 src/models/ResetPasswordDto.ts
 src/models/ResetPasswordResponseDto.ts
@@ -401,8 +417,8 @@ src/models/UpdateBalanceDto.ts
 src/models/UpdateCustomerDto.ts
 src/models/UpdateMemberRoleDto.ts
 src/models/UpdateMemberRoleResponseDto.ts
+src/models/UpdateOrganizationComplianceDto.ts
 src/models/UpdateOrganizationDto.ts
-src/models/UpdateOrganizationKycDto.ts
 src/models/UpdateOrganizationResponseDto.ts
 src/models/UpdatePaymentLinkDto.ts
 src/models/UpdatePayoutDto.ts

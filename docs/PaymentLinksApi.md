@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost:9000*
 |------------- | ------------- | -------------|
 | [**createPaymentLink**](PaymentLinksApi.md#createpaymentlink) | **POST** /api/canary/payment-links | Create Payment Link |
 | [**listPaymentLinks**](PaymentLinksApi.md#listpaymentlinks) | **GET** /api/canary/payment-links | List Payment Links |
+| [**retrievePaymentLink**](PaymentLinksApi.md#retrievepaymentlink) | **GET** /api/canary/payment-links/{id} | Retrieve Payment Link |
 | [**updatePaymentLink**](PaymentLinksApi.md#updatepaymentlink) | **PATCH** /api/canary/payment-links/{id} | Update Payment Link |
 
 
@@ -162,6 +163,79 @@ example().catch(console.error);
 | **200** | Successfully retrieved payment links |  -  |
 | **400** | Bad Request - Invalid input |  -  |
 | **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## retrievePaymentLink
+
+> PaymentLinkResponseDto retrievePaymentLink(id)
+
+Retrieve Payment Link
+
+Retrieves a single payment link by ID.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  PaymentLinksApi,
+} from '@cashful-co/typescript';
+import type { RetrievePaymentLinkRequest } from '@cashful-co/typescript';
+
+async function example() {
+  console.log("🚀 Testing @cashful-co/typescript SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearer
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new PaymentLinksApi(config);
+
+  const body = {
+    // string | The unique identifier of the payment link
+    id: id_example,
+  } satisfies RetrievePaymentLinkRequest;
+
+  try {
+    const data = await api.retrievePaymentLink(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | The unique identifier of the payment link | [Defaults to `undefined`] |
+
+### Return type
+
+[**PaymentLinkResponseDto**](PaymentLinkResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Payment link retrieved successfully |  -  |
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 

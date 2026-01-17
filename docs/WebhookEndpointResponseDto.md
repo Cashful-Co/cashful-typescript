@@ -14,6 +14,7 @@ Name | Type
 `metadata` | { [key: string]: any; }
 `createdAt` | Date
 `updatedAt` | Date
+`deletedAt` | Date
 
 ## Example
 
@@ -30,6 +31,7 @@ const example = {
   "metadata": {"environment":"production"},
   "createdAt": null,
   "updatedAt": null,
+  "deletedAt": null,
 } satisfies WebhookEndpointResponseDto
 
 console.log(example)

@@ -20,6 +20,7 @@ Name | Type
 `metadata` | { [key: string]: any; }
 `createdAt` | Date
 `updatedAt` | Date
+`deletedAt` | Date
 
 ## Example
 
@@ -42,6 +43,7 @@ const example = {
   "metadata": {"customField":"value"},
   "createdAt": null,
   "updatedAt": null,
+  "deletedAt": null,
 } satisfies PaymentLinkResponseDto
 
 console.log(example)

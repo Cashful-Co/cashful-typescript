@@ -11,6 +11,7 @@ Name | Type
 `updatedAt` | Date
 `deletedAt` | Date
 `merchantId` | string
+`phoneNumber` | string
 `email` | string
 `name` | string
 `metadata` | { [key: string]: any; }
@@ -27,6 +28,7 @@ const example = {
   "updatedAt": null,
   "deletedAt": null,
   "merchantId": null,
+  "phoneNumber": null,
   "email": null,
   "name": null,
   "metadata": {"customField":"value"},
