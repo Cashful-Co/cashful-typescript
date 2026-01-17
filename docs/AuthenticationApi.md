@@ -1,6 +1,6 @@
 # AuthenticationApi
 
-All URIs are relative to *http://localhost:9000*
+All URIs are relative to *https://api.cashful.africa*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
